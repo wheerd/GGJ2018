@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33593323943616356}
   - component: {fileID: 65605454314924970}
   - component: {fileID: 23180014272009132}
-  - component: {fileID: 114654961722603016}
+  - component: {fileID: 114495800615620226}
   m_Layer: 0
   m_Name: Converyor
   m_TagString: Untagged
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740754346387214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 2, y: 0.6, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4312549343623018}
@@ -113,8 +113,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223137717070992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.19, y: 19.902216, z: 40.13}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4258870302674070}
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 4556678077949712}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4556678077949712
 Transform:
   m_ObjectHideFlags: 1
@@ -184,7 +184,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a28acb57729003541b59c3a687e02600, type: 2}
+  - {fileID: 2100000, guid: ef6202b334790d94a8565a896ba3d3bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,7 +295,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114654961722603016
+--- !u!114 &114495800615620226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463882816114402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b081f2bb5abe26e43af208ad18df6726, type: 3}
+  m_Script: {fileID: 11500000, guid: 45aa03e86e14fff43b46c4499aaae9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkwaySpeed: 5
+  Speed: 5
