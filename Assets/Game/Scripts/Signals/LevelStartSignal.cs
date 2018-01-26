@@ -2,7 +2,7 @@
 
 namespace de.deichkrieger.stateMachine
 {
-	public class LevelStartSignal : Signal<LevelStartSignal, DefaultState, bool>
+	public class LevelStartSignal : Signal<LevelStartSignal>
 	{
 
 	}

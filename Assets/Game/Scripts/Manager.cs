@@ -7,35 +7,77 @@ namespace de.deichkrieger.stateMachine
 {
 	public class Manager : MonoBehaviour
 	{
+		[Inject] private StartState _startState;
+		[Inject] private HighscoreState _highscoreState;
+		[Inject] private CreditsState _creditsState;
+		[Inject] private LevelState _levelState;
+		[Inject] private LevelLostState _levelLostState;
+		[Inject] private LevelWinState _levelWinState;
 
-		[Inject]
-		private ChangeStateSignal _changeStateSignal;
-
-		[Inject]
-		private StartState _startState;
-
-		[Inject]
-		private FirstPersonState _firstPersonState;
-
-		[Inject]
-		private ClickToMoveState _clickToMoveState;
-
-		[Inject]
-		private PauseState _pauseState;
+		[Inject] private GameStartSignal _gameStartSignal;
+		[Inject] private GameHighscoreSignal _gameHighscoreSignal;
+		[Inject] private GameCreditsSignal _gameCreditsSignal;
+		[Inject] private LevelStartSignal _levelStartSignal;
+		[Inject] private LevelWinSignal _levelWinSignal;
+		[Inject] private LevelLostSignal _levelLostSignal;
 
 		private Stack<StateInterface> _currentStates = new Stack<StateInterface> ();
+		bool _isPaused = false;
 
-		void Start ()
+		void Awake ()
 		{
-			_changeStateSignal += ChangeState;
+			_gameStartSignal += OnStartSignal;
+			_gameHighscoreSignal += OnHighscoreSignal;
+			_gameCreditsSignal += OnCreditsSignal;
+			_levelStartSignal += OnLevelSignal;
+			_levelLostSignal += OnLevelLostSignal;
+			_levelWinSignal += OnLevelWinSignal;
+		}
+
+		void Start()
+		{
+			_gameStartSignal.Fire();
 		}
 
 		void OnDestroy ()
 		{
-			_changeStateSignal -= ChangeState;
+			_gameStartSignal -= OnStartSignal;
+			_gameHighscoreSignal -= OnHighscoreSignal;
+			_gameCreditsSignal -= OnCreditsSignal;
+			_levelStartSignal -= OnLevelSignal;
+			_levelLostSignal -= OnLevelLostSignal;
+			_levelWinSignal -= OnLevelWinSignal;
 		}
 
-		bool _isPaused = false;
+		public void OnLevelLostSignal()
+		{
+			ChangeState(_levelLostState, false);
+		}
+		
+		public void OnLevelWinSignal()
+		{
+			ChangeState(_levelWinState, false);
+		}
+		
+		public void OnStartSignal()
+		{
+			ChangeState(_startState, false);
+		}
+		
+		public void OnLevelSignal()
+		{
+			ChangeState(_levelState, false);
+		}
+
+		public void OnCreditsSignal()
+		{
+			ChangeState(_creditsState, false);
+		}
+
+		public void OnHighscoreSignal()
+		{
+			ChangeState(_highscoreState, false);
+		}
 
 		void Update ()
 		{
@@ -49,12 +91,10 @@ namespace de.deichkrieger.stateMachine
 					Time.timeScale = 1;
 					_isPaused = false;
 				}
-			} else if (Input.GetKeyDown (KeyCode.S)) {
-				_changeStateSignal.Fire (_startState, false);
-			} else if (Input.GetKeyDown (KeyCode.Alpha1)) {
-				_changeStateSignal.Fire (_firstPersonState, false);
-			} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
-				_changeStateSignal.Fire (_clickToMoveState, false);
+			} 
+			else if (Input.GetKeyDown(KeyCode.Q))
+			{
+				ChangeState(_startState, false);
 			}
 		}
 

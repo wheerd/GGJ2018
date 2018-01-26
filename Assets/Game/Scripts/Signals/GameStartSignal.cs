@@ -2,7 +2,7 @@
 
 namespace de.deichkrieger.stateMachine
 {
-	public class GameStartSignal : Signal<GameStartSignal, DefaultState, bool>
+	public class GameStartSignal : Signal<GameStartSignal>
 	{
 
 	}
