@@ -1,18 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class GateCollider : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class GateCollider : MonoBehaviour
+{
+    [Inject]
+    private LevelModel _levelModel;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,5 +14,7 @@ public class GateCollider : MonoBehaviour {
             return;
 
         Destroy(other.gameObject);
+
+        _levelModel.IncrementPackageCount();
     }
 }
