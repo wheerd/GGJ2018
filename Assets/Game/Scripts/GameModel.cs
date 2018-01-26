@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ModestTree;
+using UnityEngine;
 using Zenject;
 
 public class GameModel : IInitializable
 {
-	private readonly List<int> _finishedLevels = new List<int>(); 
+	private List<int> _finishedLevels = new List<int>(); 
 	private int _currentLevel = 0;
 	private int _lastLevel = 0;
 
@@ -90,6 +92,8 @@ public class GameModel : IInitializable
 		{
 			_finishedLevels.Add(_currentLevel);
 			_currentLevel = 0;
+
+			SavePlayedLevels();
 		}
 		else
 		{
@@ -99,6 +103,37 @@ public class GameModel : IInitializable
 
 	public void Initialize()
 	{
-		// init
+		RestorePlayedLevels();
 	}
+
+	class ListHolder
+	{
+		public List<int> list;
+	}
+
+	private void SavePlayedLevels()
+	{
+		string json = JsonUtility.ToJson(_finishedLevels);
+		PlayerPrefs.SetString("finished_levels", json);
+		
+		Debug.Log("save levels " + json);
+	}
+
+	private void RestorePlayedLevels()
+	{
+		ListHolder listHolder = new ListHolder();
+		
+		string json = PlayerPrefs.GetString("finished_levels");
+		
+		Debug.Log("restore levels " + json);
+		
+		if (json.IsEmpty())
+		{
+			return;
+		}
+
+		_finishedLevels = JsonUtility.FromJson<List<int>>(json);
+	}
+	
+	
 }
