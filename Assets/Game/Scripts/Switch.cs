@@ -14,14 +14,7 @@ public class Switch : MonoBehaviour
 
     private Queue<GameObject> packages = new Queue<GameObject>();
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+	private void Update ()
     {
         if (packages.Any())
         {
@@ -35,39 +28,16 @@ public class Switch : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Package))
         {
-            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
             var position = transform.position;
-            //position.y++;
+            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+
             rigidBody.MovePosition(position);
             rigidBody.velocity = Vector3.zero;
             rigidBody.isKinematic = true;
-            //rigidBody.MovePosition(transform.position);
 
             packages.Enqueue(other.gameObject);
         }
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    var gameObject = other.gameObject;
-    //    if (gameObject.CompareTag(Tags.Package))
-    //    {
-    //        if (!packages.Contains(gameObject))
-    //        {
-    //            print("Enqueue " + gameObject.transform.name);
-    //            packages.Enqueue(gameObject);
-    //        }
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag(Tags.Package))
-    //    {
-    //        //packages.Dequeue(other.gameObject);
-    //        MovePackageToExit(other.gameObject, SwitchExit);
-    //    }
-    //}
 
     private void MovePackageToExit(GameObject gameObject, SwitchExit exit)
     {
@@ -90,11 +60,6 @@ public class Switch : MonoBehaviour
             default:
                 throw new ExitGUIException();
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
     }
 }
 
