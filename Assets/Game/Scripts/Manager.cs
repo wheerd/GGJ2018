@@ -22,6 +22,7 @@ namespace de.deichkrieger.stateMachine
 		[Inject] private LevelWinSignal _levelWinSignal;
 		[Inject] private LevelLostSignal _levelLostSignal;
 		[Inject] private LevelChoseSignal _levelChoseSignal;
+		[Inject] private LevelNumberStartSignal _levelNumberStartSignal;
 
 		private Stack<StateInterface> _currentStates = new Stack<StateInterface> ();
 		bool _isPaused = false;
@@ -35,6 +36,7 @@ namespace de.deichkrieger.stateMachine
 			_levelLostSignal += OnLevelLostSignal;
 			_levelWinSignal += OnLevelWinSignal;
 			_levelChoseSignal += OnLevelChoseSignal;
+			_levelNumberStartSignal += OnLevelSignal;
 		}
 
 		void Start()
@@ -51,6 +53,7 @@ namespace de.deichkrieger.stateMachine
 			_levelLostSignal -= OnLevelLostSignal;
 			_levelWinSignal -= OnLevelWinSignal;
 			_levelChoseSignal -= OnLevelChoseSignal;
+			_levelNumberStartSignal += OnLevelSignal;
 		}
 
 		public void OnLevelChoseSignal()
@@ -75,6 +78,12 @@ namespace de.deichkrieger.stateMachine
 		
 		public void OnLevelSignal()
 		{
+			ChangeState(_levelState, false);
+		}
+		
+		public void OnLevelSignal(int level)
+		{
+			_levelState.SetNextLevel(level);
 			ChangeState(_levelState, false);
 		}
 

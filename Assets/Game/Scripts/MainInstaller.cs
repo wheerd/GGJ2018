@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Zenject;
 using de.deichkrieger.stateMachine;
 
@@ -46,6 +46,7 @@ public class MainInstaller : MonoInstaller
 		Container.DeclareSignal<LevelLostSignal> ();
 		Container.DeclareSignal<LevelWinSignal> ();
 		Container.DeclareSignal<LevelStartSignal> ();
+		Container.DeclareSignal<LevelNumberStartSignal> ();
 		Container.DeclareSignal<LevelChoseSignal> ();
 	}
 

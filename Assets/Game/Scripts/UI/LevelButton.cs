@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using de.deichkrieger.stateMachine;
+using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class LevelButton : MonoBehaviour
 {
@@ -8,7 +10,15 @@ public class LevelButton : MonoBehaviour
 	
 	[SerializeField]
 	Button _button;
+	
+	[Inject]
+	private LevelNumberStartSignal _levelNumberStartSignal;
 
+	public void StartLevel()
+	{
+		_levelNumberStartSignal.Fire(int.Parse(_text.text));
+	}
+	
 	public void SetLevel(int level)
 	{
 		_text.text = level.ToString();

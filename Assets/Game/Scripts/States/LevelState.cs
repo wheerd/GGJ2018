@@ -4,15 +4,22 @@ using UnityEngine.SceneManagement;
 public class LevelState : DefaultState
 {
 	private GameModel _gameModel;
+	private int _nextLevel;
 	
 	public LevelState(GameModel gameModel)
 	{
 		_gameModel = gameModel;
+		_nextLevel = _gameModel.GetLastFinishedLevel() + 1;
+	}
+
+	public void SetNextLevel(int nextLevel)
+	{
+		_nextLevel = nextLevel;
 	}
 	
 	override public void Load ()
 	{
-		_gameModel.PlayNextLevel(_gameModel.GetLastFinishedLevel() + 1);
+		_gameModel.PlayNextLevel(_nextLevel);
 		
 		SceneManager.LoadScene (GetLevelSceneName(), LoadSceneMode.Additive);
 		SceneManager.LoadScene ("LevelUI", LoadSceneMode.Additive);
