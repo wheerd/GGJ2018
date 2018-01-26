@@ -12,6 +12,9 @@ public class StartUI : MonoBehaviour {
 	
 	[Inject]
 	private LevelStartSignal _levelStartSignal;
+	
+	[Inject]
+	private LevelChoseSignal _levelChoseSignal;
 
 	public void ShowHighscore()
 	{
@@ -26,5 +29,10 @@ public class StartUI : MonoBehaviour {
 	public void StartNextLevel()
 	{
 		_levelStartSignal.Fire();
+	}
+	
+	public void ChoseLevel()
+	{
+		_levelChoseSignal.Fire();
 	}
 }

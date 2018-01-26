@@ -14,21 +14,6 @@ public class TestModel
 	}
 }
 
-public class GameModel : IInitializable
-{
-	readonly ExampleSignal _exampleSignal;
-
-	public GameModel (ExampleSignal exampleSignal)
-	{
-		_exampleSignal = exampleSignal;
-	}
-
-	public void Initialize ()
-	{
-		_exampleSignal.Fire ("Test");
-	}
-}
-
 public class MainInstaller : MonoInstaller
 {
 	public override void InstallBindings ()
@@ -36,28 +21,31 @@ public class MainInstaller : MonoInstaller
 		DeclareSignals();
 		BindSignals();
 
-		Container.BindInterfacesTo<GameModel> ().AsSingle ().NonLazy ();
+		Container.Bind<GameModel> ().AsSingle ().NonLazy ();
+		Container.Bind<GameConfig> ().AsSingle ().NonLazy ();
 
 		InstallStates();
 	}
 
 	private void BindSignals()
 	{
-		Container.BindSignal<string, ExampleSignal> ()
-			.To<TestModel> (x => x.Test).AsSingle ().NonLazy ();
+		/*Container.BindSignal<string, ExampleSignal> ()
+			.To<TestModel> (x => x.Test).AsSingle ().NonLazy ();*/
 	}
 	
 	private void DeclareSignals()
 	{
-		Container.DeclareSignal<ExampleSignal> ();
-		Container.DeclareSignal<ChangeStateSignal> ();
+		/*Container.DeclareSignal<ExampleSignal> ();
+		Container.DeclareSignal<ChangeStateSignal> ();*/
 		
 		Container.DeclareSignal<GameCreditsSignal> ();
 		Container.DeclareSignal<GameHighscoreSignal> ();
 		Container.DeclareSignal<GameStartSignal> ();
+		
 		Container.DeclareSignal<LevelLostSignal> ();
 		Container.DeclareSignal<LevelWinSignal> ();
 		Container.DeclareSignal<LevelStartSignal> ();
+		Container.DeclareSignal<LevelChoseSignal> ();
 	}
 
 	private void InstallStates()

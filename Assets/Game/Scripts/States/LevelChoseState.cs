@@ -1,14 +1,16 @@
-﻿using System;
-using de.deichkrieger.stateMachine;
+﻿using de.deichkrieger.stateMachine;
+using UnityEngine.SceneManagement;
 
 public class LevelChoseState : DefaultState {
-	public void Load()
+	override public void Load ()
 	{
-		throw new NotImplementedException();
+		SceneManager.LoadScene ("LevelChoseScene", LoadSceneMode.Additive);
+		SceneManager.LoadScene ("LevelChoseUI", LoadSceneMode.Additive);
 	}
 
-	public void Unload()
+	override public void Unload ()
 	{
-		throw new NotImplementedException();
+		SceneManager.UnloadSceneAsync ("LevelChoseUI");
+		SceneManager.UnloadSceneAsync ("LevelChoseScene");
 	}
 }

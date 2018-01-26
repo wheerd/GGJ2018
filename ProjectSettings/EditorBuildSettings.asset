@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/HighscoreScene.unity
     guid: af0193f7e07404a45abc605f9e11dfaa
   - enabled: 1
-    path: Assets/Game/Scenes/Level_001Scene.unity
+    path: Assets/Game/Scenes/Levels/Level_001Scene.unity
     guid: e672d856e38774c65a8fbeb1f0128540
   - enabled: 1
     path: Assets/Game/Scenes/LevelLostScene.unity
@@ -36,11 +36,59 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/UI/HighscoreUI.unity
     guid: 553ca028944c54ba2a40d559018890df
   - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_002Scene.unity
+    guid: b733fd17c16c34796ab167c2cee4d80b
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_003Scene.unity
+    guid: 11c7a0b377b9c446f990114b2a5de3f6
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_004Scene.unity
+    guid: a9d819f64d96c4bd9a0a27dd444a2bb2
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_005Scene.unity
+    guid: 626fa742bef9d481a973e0515d140e85
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_006Scene.unity
+    guid: fb5996ea93d054fb4bfc4117a4211eba
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_007Scene.unity
+    guid: a7557892506a04696b3b4f6ce6cbdbab
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_008Scene.unity
+    guid: 973bcae8259e04cf289ee8783df551e3
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_009Scene.unity
+    guid: 1ba2c6c9e49114c298357cc32d626881
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_010Scene.unity
+    guid: bec6aa452d066499399fdee2ce7d5466
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_011Scene.unity
+    guid: 22e5c6bb2888741b1989c89b3ea391f6
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_012Scene.unity
+    guid: 6c94f5f4e0c624166b9168b812738434
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_013Scene.unity
+    guid: 6641c47e543544806a4090bf92f137a0
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_014Scene.unity
+    guid: 9736e02d12b124650975e2ec915a1b73
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_015Scene.unity
+    guid: e5670d16d548e4583b04b4883f87616b
+  - enabled: 1
     path: Assets/Game/Scenes/UI/LevelUI.unity
     guid: 5a918f569e88d423880ddd34b764537a
   - enabled: 1
     path: Assets/Game/Scenes/UI/LevelLostUI.unity
     guid: d7a21cf51acac469d99d0b18d7206ad2
   - enabled: 1
-    path: Assets/Game/Scenes/LevelWinUI.unity
+    path: Assets/Game/Scenes/UI/LevelWinUI.unity
     guid: d22a715896e164d859dc41c480bc8796
+  - enabled: 1
+    path: Assets/Game/Scenes/UI/LevelChoseUI.unity
+    guid: 20d82640843614ebfa19c8ff24040206
+  - enabled: 1
+    path: Assets/Game/Scenes/LevelChoseScene.unity
+    guid: 2f1d464e8eac9414496f2ac4423f2c82
