@@ -4,7 +4,7 @@ public class Walkway : MonoBehaviour {
 
     public float WalkwaySpeed = 5.0f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateMovingAnimation();
     }

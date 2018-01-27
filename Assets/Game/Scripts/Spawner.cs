@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
         material.SetTextureOffset("_MainTex", offset);
     }
 
-    private void Update ()
+    private void FixedUpdate ()
     {
         //AnimateTexture();
 

@@ -39,7 +39,7 @@ public class Switch : MonoBehaviourWithCursor
         UpdateRotation();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetButtonDown(Hotkey))
             switch (InputMode)
