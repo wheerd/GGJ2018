@@ -24,6 +24,7 @@ public class MainInstaller : MonoInstaller
 		Container.Bind<GameModel> ().AsSingle ().NonLazy ();
 		Container.Bind<GameConfig> ().AsSingle ().NonLazy ();
 	    Container.Bind<LevelModel>().AsSingle().NonLazy();
+	    Container.Bind<HighscoreModel>().AsSingle().NonLazy();
 
         InstallStates();
 	}

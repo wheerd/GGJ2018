@@ -17,8 +17,6 @@ public class Floor : MonoBehaviour {
 
         _collidedPackages.Add(other.gameObject);
 
-        Debug.Log("Floor " + other.gameObject.name);
-
         var package = other.gameObject.GetComponent<Package>();
         package.Fade();
 
