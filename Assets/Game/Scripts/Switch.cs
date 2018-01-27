@@ -102,6 +102,7 @@ public class Switch : MonoBehaviourWithCursor
 
     void OnValidate()
     {
+        if (DefaultExit == SwitchExit.Ahead && SwitchType == SwitchType.TwoWay) DefaultExit = SwitchExit.Left;
         currentExit = DefaultExit;
         UpdateRotation();
     }
