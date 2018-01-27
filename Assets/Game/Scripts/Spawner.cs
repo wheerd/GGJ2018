@@ -38,6 +38,7 @@ public class Spawner : MonoBehaviour
             case "1": return PackageColor.Red;
             case "2": return PackageColor.Blue;
             case "3": return PackageColor.Green;
+            case "4": return PackageColor.Yellow;
             default: return PackageColor.Green;
         }
     }

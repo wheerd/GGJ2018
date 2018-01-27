@@ -3,7 +3,8 @@ using UnityEngine;
 
 public enum PackageColor
 {
-    Red, Green, Blue
+    Red, Green, Blue,
+    Yellow
 }
 
 public static class PackageColorExtensions
@@ -18,6 +19,8 @@ public static class PackageColorExtensions
                 return Color.red;
             case PackageColor.Green:
                 return Color.green;
+            case PackageColor.Yellow:
+                return Color.yellow;
         }
 
         throw new ArgumentException("Invalid Color");
