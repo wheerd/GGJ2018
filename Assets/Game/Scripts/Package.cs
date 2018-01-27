@@ -15,16 +15,16 @@ public class Package : MonoBehaviour
         _fading = true;
     }
 
-	void Start ()
-	{
-	    _maxSpeed = 0;
+    void Start ()
+    {
+        _maxSpeed = 0;
         transform.localScale.Scale(new Vector3(
             Random.Range(0.9f, 1.1f),
             Random.Range(0.9f, 1.1f),
             Random.Range(0.9f, 1.1f)));
 
-	    GetComponent<MeshRenderer>().material.color = Color.ToColor();
-	}
+        GetComponent<MeshRenderer>().material.color = Color.ToColor();
+    }
 
     public void UpdateMaxBeltSpeed(float speed)
     {
@@ -48,13 +48,13 @@ public class Package : MonoBehaviour
     }
 
     void LateUpdate ()
-	{
-	    if (_maxSpeed > 0 && !_fading)
-	    {
-	        var body = GetComponent<Rigidbody>();
+    {
+        if (_maxSpeed > 0 && !_fading)
+        {
+            var body = GetComponent<Rigidbody>();
 
-	        body.velocity = body.velocity.normalized * _maxSpeed;
-	        _maxSpeed = 0;
-	    }
-	}
+            body.velocity = body.velocity.normalized * _maxSpeed;
+            _maxSpeed = 0;
+        }
+    }
 }
