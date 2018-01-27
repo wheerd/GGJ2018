@@ -7,11 +7,9 @@ public class LevelLostUI : MonoBehaviour {
 	[SerializeField] private Text _packets;
 	[SerializeField] private Text _time;
 	
-	[Inject]
-	private GameStartSignal _gameStartSignal;
+	[Inject] private GameStartSignal _gameStartSignal;
 	
-	[Inject]
-	private GameHighscoreSignal _gameHighscoreSignal;
+	[Inject] private GameHighscoreSignal _gameHighscoreSignal;
 	
 	[Inject] private LevelModel _levelModel;
 

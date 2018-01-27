@@ -9,8 +9,12 @@ public class LevelWinUI : MonoBehaviour
 	[SerializeField] private Text _packets;
 	[SerializeField] private Text _time;
 	
+	
 	[Inject]
 	GameModel _gameModel;
+	
+	[Inject]
+	HighscoreModel _highscoreModel;
 	
 	[Inject]
 	GameConfig _gameConfig;
@@ -27,6 +31,8 @@ public class LevelWinUI : MonoBehaviour
 	{
 		_packets.text = _levelModel.CorrectPackageCount.ToString() + " / " + _levelModel.ExpectedPackageCount;
 		_time.text = GetTimeFormatted(_levelModel.Timer);
+		
+		AddHighscore();
 	}
 	
 	public void StartNextLevel()
@@ -48,5 +54,10 @@ public class LevelWinUI : MonoBehaviour
 		var seconds = totalSeconds % 60;
 
 		return string.Format("{0:D}:{1:00}", minutes, seconds);
+	}
+
+	private void AddHighscore()
+	{
+		_highscoreModel.AddHighscore(_gameModel.GetLastLevel(), _levelModel.Timer);
 	}
 }
