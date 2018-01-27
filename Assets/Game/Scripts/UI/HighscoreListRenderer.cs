@@ -12,7 +12,7 @@ public class HighscoreListRenderer : MonoBehaviour
 
 	void Start()
 	{
-		var i = 0;
+		var i = 1;
 		foreach (var entry in _highscoreModel.GetScores())
 		{
 			HighscoreEntryRenderer item = Instantiate(_entryPrefab);
