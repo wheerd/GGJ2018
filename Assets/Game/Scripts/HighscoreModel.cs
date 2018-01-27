@@ -23,6 +23,11 @@ public class HighscoreModel {
 		RestoreHighscore();
 	}
 
+	public List<HighscoreEntry> GetScores()
+	{
+		return Highscores;
+	}
+
 	public void AddHighscore(int level, float time)
 	{
 		Debug.Log("Add Highscore " + level + "/" + time);
