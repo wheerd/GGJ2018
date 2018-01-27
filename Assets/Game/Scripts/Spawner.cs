@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using UnityEditor;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -39,6 +37,8 @@ public class Spawner : MonoBehaviour
             case "2": return PackageColor.Blue;
             case "3": return PackageColor.Green;
             case "4": return PackageColor.Yellow;
+            case "5": return PackageColor.Pink;
+            case "6": return PackageColor.Orange;
             default: return PackageColor.Green;
         }
     }
