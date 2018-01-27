@@ -90,5 +90,6 @@ public class Package : MonoBehaviour
 public enum PackageState
 {
     Normal,
-    Blank
+    Blank,
+    None
 }
