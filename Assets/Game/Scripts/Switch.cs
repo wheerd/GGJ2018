@@ -1,76 +1,118 @@
-﻿using Assets.Game.Scripts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Game.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum InputMode
+{
+    Single,
+    Hold,
+    OneSecond,
+    ButtonMash
+}
+
 public class Switch : MonoBehaviourWithCursor
 {
-    public SwitchType SwitchType;
-
-    public SwitchExit SwitchExit;
-
-    public float OutputSpeed = 5.0f;
-
-    private readonly Queue<GameObject> packageQueue = new Queue<GameObject>();
+    private const float dampening = 0.3f;
+    private const float threshold = 1.0f;
 
     private readonly HashSet<GameObject> ignored = new HashSet<GameObject>();
 
-    public String Hotkey = "Hotkey1";
+    private readonly Queue<GameObject> packageQueue = new Queue<GameObject>();
+
+    private SwitchExit currentExit;
+
+    private float currentLevel;
+
+    public SwitchExit DefaultExit;
+
+    public string Hotkey = "Hotkey1";
+
+    public InputMode InputMode;
+
+    public float OutputSpeed = 5.0f;
+
+    public Slider slider;
+    public SwitchType SwitchType;
 
     private void Start()
     {
+        slider.gameObject.SetActive(false);
         GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
-        UpdateSwitchExit();
+        currentExit = DefaultExit;
         UpdateRotation();
     }
 
-    private void Update ()
+    private void Update()
     {
         if (Input.GetButtonDown(Hotkey))
+            switch (InputMode)
+            {
+                case InputMode.ButtonMash:
+                    slider.gameObject.SetActive(true);
+                    currentLevel += dampening;
+                    slider.normalizedValue = Math.Max(currentLevel / threshold, 0);
+                    if (currentLevel >= threshold)
+                    {
+                        SetSwitchExit(currentExit.NextValid(SwitchType));
+                        currentLevel -= threshold;
+                    }
+
+                    currentLevel -= Time.deltaTime;
+                    break;
+                case InputMode.OneSecond:
+                    slider.gameObject.SetActive(true);
+                    currentLevel = threshold;
+                    slider.normalizedValue = 1f;
+                    SetSwitchExit(DefaultExit.NextValid(SwitchType));
+                    break;
+                default:
+                    SetSwitchExit(currentExit.NextValid(SwitchType));
+                    break;
+            }
+
+        if (Input.GetButtonUp(Hotkey) && InputMode == InputMode.Hold) SetSwitchExit(DefaultExit);
+
+        if (currentLevel >= 0)
         {
-            UpdateSwitchExit();
+            if (!Input.GetButton(Hotkey) || InputMode != InputMode.OneSecond)
+                currentLevel -= Time.deltaTime;
+            slider.normalizedValue = Math.Max(currentLevel / threshold, 0);
+            slider.gameObject.SetActive(true);
+        }
+        else
+        {
+            slider.gameObject.SetActive(false);
+        }
+
+        if (!Input.GetButton(Hotkey) && InputMode == InputMode.OneSecond && currentExit != DefaultExit && currentLevel <= 0)
+        {
+            SetSwitchExit(DefaultExit);
         }
 
         if (packageQueue.Any())
         {
             var package = packageQueue.Dequeue();
-            MovePackageToExit(package, SwitchExit);
+            MovePackageToExit(package, currentExit);
         }
     }
 
     private void OnMouseDown()
     {
-        UpdateSwitchExit();
-    }
-
-    private void UpdateSwitchExit()
-    {
-        SwitchExit newExit;
-        var values = Enum.GetValues(typeof(SwitchExit)).Cast<SwitchExit>();
-        var currentExit = SwitchExit;
-
-        if (currentExit == values.Last())
-        {
-            newExit = values.First();
-        }
-        else
-        {
-            newExit = currentExit + 1;
-        }
-
-        if (SwitchType != SwitchType.ThreeWay && newExit == SwitchExit.Ahead)
-        {
-            newExit++;
-        }
-
-        SetSwitchExit(newExit);
+        SetSwitchExit(currentExit.NextValid(SwitchType));
     }
 
     private void SetSwitchExit(SwitchExit switchExit)
     {
-        SwitchExit = switchExit;
+        currentExit = switchExit;
+        UpdateRotation();
+    }
+
+    void OnValidate()
+    {
+        currentExit = DefaultExit;
         UpdateRotation();
     }
 
@@ -79,7 +121,7 @@ public class Switch : MonoBehaviourWithCursor
         var top = transform.GetChild(1);
         float yAngle;
 
-        switch (SwitchExit)
+        switch (currentExit)
         {
             case SwitchExit.Ahead:
                 yAngle = 180;
@@ -93,7 +135,7 @@ public class Switch : MonoBehaviourWithCursor
             default:
                 throw new Exception();
         }
-        
+
         top.transform.rotation = Quaternion.Euler(0, yAngle, 0);
     }
 
@@ -117,10 +159,7 @@ public class Switch : MonoBehaviourWithCursor
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(Tags.Package))
-        {
-            ignored.Remove(other.gameObject);
-        }
+        if (other.gameObject.CompareTag(Tags.Package)) ignored.Remove(other.gameObject);
     }
 
     private void MovePackageToExit(GameObject gameObject, SwitchExit exit)
@@ -156,4 +195,22 @@ public enum SwitchExit
     Ahead,
     Left,
     Right
+}
+
+public static class EnumExtension
+{
+    public static T Next<T>(this T value)
+    {
+        var values = (T[]) Enum.GetValues(typeof(T));
+        var index = Array.IndexOf(values, value);
+        var nextIndex = (index + 1) % values.Length;
+        return values[nextIndex];
+    }
+
+    public static SwitchExit NextValid(this SwitchExit value, SwitchType type)
+    {
+        var next = value.Next();
+        if (type == SwitchType.TwoWay && next == SwitchExit.Ahead) next = next.Next();
+        return next;
+    }
 }
