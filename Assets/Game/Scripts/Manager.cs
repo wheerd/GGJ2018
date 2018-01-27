@@ -143,5 +143,13 @@ namespace de.deichkrieger.stateMachine
 			_currentStates.Push (_newState);
 			_currentStates.Peek ().Load ();
 		}
+		
+		void OnApplicationPause (bool pause)
+		{
+			if (pause)
+			{
+				_pauseSignal.Fire();
+			}
+		}
 	}
 }
