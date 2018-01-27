@@ -6,6 +6,7 @@ public class GameConfigInput : MonoBehaviour
 
 	[SerializeField] private int MaxLevel = 15;
 	[SerializeField] private bool ImmediateFail = false;
+	[SerializeField] private float TimeScale = 1;
 
 	[Inject] private GameConfig _gameConfig;
 	
@@ -14,5 +15,6 @@ public class GameConfigInput : MonoBehaviour
 	{
 		_gameConfig.MaxLevel = MaxLevel;
 		_gameConfig.ImmediateFail = ImmediateFail;
+		_gameConfig.TimeScale = TimeScale;
 	}
 }

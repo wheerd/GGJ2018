@@ -69,7 +69,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Levels/Level_012Scene.unity
     guid: 9c972015630284a2e9fd5ed130860f06
   - enabled: 1
-    path: Assets/Game/Scenes/Levels/Level_013Scene.unity
+    path: Assets/__DELETED_GUID_Trash/97fb18c1a9bd64886a6ab6b9aa2c3969
     guid: 97fb18c1a9bd64886a6ab6b9aa2c3969
   - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_014Scene.unity
@@ -110,3 +110,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Tmp_Scanner.unity
     guid: 122270e7b63eaa841a364c0d723f0d23
+  - enabled: 1
+    path: Assets/Game/Scenes/UI/LevelOverlay.unity
+    guid: f6abeb6f1f82c478ca2b832e2cc44c66

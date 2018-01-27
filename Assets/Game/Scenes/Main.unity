@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxLevel: 15
   ImmediateFail: 1
+  TimeScale: 1
 --- !u!1 &1001765393
 GameObject:
   m_ObjectHideFlags: 0
