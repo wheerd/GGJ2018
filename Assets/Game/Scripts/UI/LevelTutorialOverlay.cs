@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class LevelTutorialOverlay : MonoBehaviour
 {
@@ -9,10 +10,7 @@ public class LevelTutorialOverlay : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("Pause game");
-
-		_timeScale = Time.timeScale;
-		Time.timeScale = 0;
+		StartCoroutine(Pause());
 	}
 
 	public void CloseOverlay()
@@ -21,5 +19,15 @@ public class LevelTutorialOverlay : MonoBehaviour
 		Time.timeScale = _timeScale;
 		
 		_overlayToHide.SetActive(false);
+	}
+	
+	IEnumerator Pause()
+	{
+		yield return new WaitForSeconds(0.3f);
+		
+		Debug.Log ("Pause game");
+
+		_timeScale = Time.timeScale;
+		Time.timeScale = 0;
 	}
 }
