@@ -1,6 +1,4 @@
 ﻿using Assets.Game.Scripts;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,34 +43,31 @@ public class Merger : MonoBehaviour
 
     private void MovePackageToExit(GameObject gameObject)
     {
+        gameObject.layer = Layers.Default;
+
         var rigidBody = gameObject.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
-        rigidBody.detectCollisions = true;
         rigidBody.velocity = transform.forward * OutputSpeed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(Tags.Package))
+        var gameObject = other.gameObject;
+        if (gameObject.CompareTag(Tags.Package))
         {
             if (ignored.Contains(other.gameObject)) return;
             ignored.Add(other.gameObject);
 
             var position = transform.position;
-            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+            var rigidBody = gameObject.GetComponent<Rigidbody>();
 
+            rigidBody.isKinematic = true;
             rigidBody.velocity = Vector3.zero;
             rigidBody.MovePosition(position);
-            rigidBody.isKinematic = true;
-            
-            var collider = other.gameObject.GetComponent<Collider>();
-            foreach (var item in packageQueue)
-            {
-                var otherCollider = item.gameObject.gameObject.GetComponent<Collider>();
-                Physics.IgnoreCollision(collider, otherCollider);
-            }
 
-            packageQueue.Enqueue(other.gameObject);
+            gameObject.layer = Layers.DisabledPackages;
+
+            packageQueue.Enqueue(gameObject);
         }
     }
 

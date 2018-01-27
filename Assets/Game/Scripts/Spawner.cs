@@ -43,29 +43,29 @@ public class Spawner : MonoBehaviour
 
         _elapsed += Time.deltaTime;
 
-	    if (_index >= PackageSpawns.Count)
-	    {
-	        return;
-	    }
+        if (_index >= PackageSpawns.Count)
+        {
+            return;
+        }
 
         var nextSpawnTime = PackageSpawns[_index].TimeBefore;
-	    var nextColor = PackageSpawns[_index].Color;
+        var nextColor = PackageSpawns[_index].Color;
 
-	    if (!(_elapsed > nextSpawnTime)) return;
+        if (!(_elapsed > nextSpawnTime)) return;
 
-	    _elapsed -= nextSpawnTime;
+        _elapsed -= nextSpawnTime;
             
-	    var position = transform.position + transform.up * 2;
+        var position = transform.position + transform.up * 2;
 
-	    var package = Instantiate(Package, position, Quaternion.identity);
+        var package = Instantiate(Package, position, Quaternion.identity);
 
-	    package.GetComponent<Package>().Color = nextColor;
-	    package.name = string.Format("Package {0}", _index);
+        package.GetComponent<Package>().Color = nextColor;
+        package.name = string.Format("Package {0}", _index);
         
         package.gameObject.transform.SetParent(transform);
 
         _index++;
-	}
+    }
 
     void OnCollisionStay(Collision collision)
     {
