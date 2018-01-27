@@ -19,8 +19,6 @@ public class Spawner : MonoBehaviour
 
     public float Speed = 5;
 
-    public float RepeatTime = 0;
-
     public GameObject Package;
 
     public List<PackageSpawn> PackageSpawns = new List<PackageSpawn>();
@@ -35,12 +33,9 @@ public class Spawner : MonoBehaviour
 	{
 	    _elapsed += Time.deltaTime;
 
-	    if (_index == PackageSpawns.Count)
+	    if (_index >= PackageSpawns.Count)
 	    {
-	        if (_elapsed < RepeatTime) return;
-
-	        _elapsed -= RepeatTime;
-	        _index = 0;
+	        return;
 	    }
 
         var nextSpawnTime = PackageSpawns[_index].TimeBefore;
@@ -58,6 +53,7 @@ public class Spawner : MonoBehaviour
 
 	    _index++;
 	}
+
     void OnCollisionStay(Collision collision)
     {
         if (!collision.gameObject.CompareTag("package"))
