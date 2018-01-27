@@ -2,6 +2,7 @@
 using de.deichkrieger.stateMachine;
 using Zenject;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace de.deichkrieger.stateMachine
 {
@@ -23,6 +24,7 @@ namespace de.deichkrieger.stateMachine
 		[Inject] private LevelLostSignal _levelLostSignal;
 		[Inject] private LevelChoseSignal _levelChoseSignal;
 		[Inject] private LevelNumberStartSignal _levelNumberStartSignal;
+		[Inject] private PauseSignal _pauseSignal;
 
 		private Stack<StateInterface> _currentStates = new Stack<StateInterface> ();
 		bool _isPaused = false;
@@ -37,6 +39,7 @@ namespace de.deichkrieger.stateMachine
 			_levelWinSignal += OnLevelWinSignal;
 			_levelChoseSignal += OnLevelChoseSignal;
 			_levelNumberStartSignal += OnLevelSignal;
+			_pauseSignal += OnPauseSignal;
 		}
 
 		void Start()
@@ -54,6 +57,7 @@ namespace de.deichkrieger.stateMachine
 			_levelWinSignal -= OnLevelWinSignal;
 			_levelChoseSignal -= OnLevelChoseSignal;
 			_levelNumberStartSignal -= OnLevelSignal;
+			_pauseSignal -= OnPauseSignal;
 		}
 
 		public void OnLevelChoseSignal()
@@ -97,18 +101,27 @@ namespace de.deichkrieger.stateMachine
 			ChangeState(_highscoreState, false);
 		}
 
+		void OnPauseSignal()
+		{
+			if (!_isPaused) {
+				Debug.Log ("Pause game");
+				Time.timeScale = 0;
+				_isPaused = true;
+				SceneManager.LoadSceneAsync("PauseUI", LoadSceneMode.Additive);
+			} else
+			{
+				SceneManager.UnloadSceneAsync("PauseUI");
+				Debug.Log ("Resume game");
+				Time.timeScale = 1;
+				_isPaused = false;
+			}
+		}
+		
 		void Update ()
 		{
-			if (Input.GetKeyDown (KeyCode.Escape)) {
-				if (!_isPaused) {
-					Debug.Log ("Pause game");
-					Time.timeScale = 0;
-					_isPaused = true;
-				} else {
-					Debug.Log ("Resume game");
-					Time.timeScale = 1;
-					_isPaused = false;
-				}
+			if (Input.GetKeyDown (KeyCode.Escape))
+			{
+				_pauseSignal.Fire();
 			} 
 			else if (Input.GetKeyDown(KeyCode.Q))
 			{

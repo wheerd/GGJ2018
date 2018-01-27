@@ -39,6 +39,8 @@ public class MainInstaller : MonoInstaller
 		/*Container.DeclareSignal<ExampleSignal> ();
 		Container.DeclareSignal<ChangeStateSignal> ();*/
 		
+		Container.DeclareSignal<PauseSignal> ();
+		
 		Container.DeclareSignal<GameCreditsSignal> ();
 		Container.DeclareSignal<GameHighscoreSignal> ();
 		Container.DeclareSignal<GameStartSignal> ();

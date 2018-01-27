@@ -43,4 +43,9 @@ public class StartUI : MonoBehaviour {
 	{
 		_gameModel.ResetState();
 	}
+
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 }

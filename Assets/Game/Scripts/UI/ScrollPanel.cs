@@ -38,6 +38,9 @@ public class ScrollPanel : MonoBehaviour
 			
 			newButton.gameObject.SetActive(true);
 			newButton.gameObject.transform.SetParent(transform);
+			
+			newButton.transform.localScale = new Vector3( 1, 1, 1 );
+			newButton.transform.localPosition = Vector3.zero;
 		}
 	}
 }

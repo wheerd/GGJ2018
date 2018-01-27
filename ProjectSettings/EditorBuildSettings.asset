@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Levels/Level_004Scene.unity
     guid: 913c315f879944c9fa185164fbc07e8d
   - enabled: 1
+    path: Assets/Game/Scenes/UI/PauseUI.unity
+    guid: ba46b79f6a08b4e6fb1fc28312b0c13b
+  - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_005Scene.unity
     guid: 86d48f284044449e9a86056a40fc69d5
   - enabled: 1
