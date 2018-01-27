@@ -22,7 +22,7 @@ public class GateCollider : MonoBehaviour
         _collidedPackages.Clear();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.CompareTag("package") || _collidedPackages.Contains(other.gameObject))
             return;
