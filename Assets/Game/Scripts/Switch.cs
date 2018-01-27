@@ -13,6 +13,8 @@ public class Switch : MonoBehaviourWithCursor
 
     public float OutputSpeed = 5.0f;
 
+    private readonly Queue<GameObject> packageQueue = new Queue<GameObject>();
+
     private readonly HashSet<GameObject> ignored = new HashSet<GameObject>();
 
     public String Hotkey = "Hotkey1";
@@ -21,6 +23,7 @@ public class Switch : MonoBehaviourWithCursor
     {
         GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
         UpdateSwitchExit();
+        UpdateRotation();
     }
 
     private void Update ()
@@ -28,6 +31,12 @@ public class Switch : MonoBehaviourWithCursor
         if (Input.GetButtonDown(Hotkey))
         {
             UpdateSwitchExit();
+        }
+
+        if (packageQueue.Any())
+        {
+            var package = packageQueue.Dequeue();
+            MovePackageToExit(package, SwitchExit);
         }
     }
 
@@ -67,7 +76,7 @@ public class Switch : MonoBehaviourWithCursor
 
     private void UpdateRotation()
     {
-        var top = transform.GetChild(0);
+        var top = transform.GetChild(1);
         float yAngle;
 
         switch (SwitchExit)
@@ -90,17 +99,19 @@ public class Switch : MonoBehaviourWithCursor
 
     private void OnTriggerEnter(Collider other)
     {
-        var gameObject = other.gameObject;
-        if (gameObject.CompareTag(Tags.Package))
+        if (other.gameObject.CompareTag(Tags.Package))
         {
+            if (ignored.Contains(other.gameObject)) return;
+            ignored.Add(other.gameObject);
+
             var position = transform.position;
-            var rigidBody = gameObject.GetComponent<Rigidbody>();
+            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
 
             rigidBody.velocity = Vector3.zero;
             rigidBody.MovePosition(position);
             rigidBody.isKinematic = true;
-            
-            MovePackageToExit(gameObject, SwitchExit);
+
+            packageQueue.Enqueue(other.gameObject);
         }
     }
 
