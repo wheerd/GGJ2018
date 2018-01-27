@@ -51,6 +51,9 @@ public class MainInstaller : MonoInstaller
 		Container.DeclareSignal<LevelStartSignal> ();
 		Container.DeclareSignal<LevelNumberStartSignal> ();
 		Container.DeclareSignal<LevelChoseSignal> ();
+		
+		Container.DeclareSignal<PlayMusicStringSignal> ();
+		Container.DeclareSignal<PlayMusicClipSignal> ();
 	}
 
 	private void InstallStates()
