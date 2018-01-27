@@ -30,6 +30,11 @@ public class Switch : MonoBehaviourWithCursor
     {
         slider.gameObject.SetActive(false);
         GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
+        
+        #if UNITY_ANDROID
+        GetComponentInChildren<Text>().transform.parent.gameObject.SetActive(false);
+        #endif
+        
         currentExit = DefaultExit;
         UpdateRotation();
     }
