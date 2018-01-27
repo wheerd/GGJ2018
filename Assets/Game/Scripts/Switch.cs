@@ -16,6 +16,8 @@ public class Switch : MonoBehaviourWithCursor
 
     private readonly HashSet<GameObject> ignored = new HashSet<GameObject>();
 
+    public String Hotkey = "Hotkey1";
+
     private void Start()
     {
         UpdateSwitchExit();
@@ -24,6 +26,11 @@ public class Switch : MonoBehaviourWithCursor
 
     private void Update ()
     {
+        if (Input.GetButtonDown(Hotkey))
+        {
+            UpdateSwitchExit();
+        }
+
         if (packageQueue.Any())
         {
             var package = packageQueue.Dequeue();
