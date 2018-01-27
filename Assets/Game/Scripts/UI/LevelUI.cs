@@ -9,6 +9,13 @@ public class LevelUI : MonoBehaviour {
 	
 	[Inject]
 	private LevelLostSignal _levelLostSignal;
+	
+	[Inject] private PauseSignal _pauseSignal;
+
+	public void Pause()
+	{
+		_pauseSignal.Fire();
+	}
 
 	public void ShowWin()
 	{
