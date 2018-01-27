@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     void Update ()
     {
-        AnimateTexture();
+        //AnimateTexture();
 
         _elapsed += Time.deltaTime;
 
