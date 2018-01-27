@@ -17,8 +17,10 @@ public class Floor : MonoBehaviour {
 
         _collidedPackages.Add(other.gameObject);
 
+        /*
         var package = other.gameObject.GetComponent<Package>();
         package.Fade();
+        */
 
         _levelModel.IncrementPackageCount(false);
     }

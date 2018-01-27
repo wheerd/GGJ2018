@@ -39,7 +39,7 @@ public class GateCollider : MonoBehaviour
 
         var packageColor = other.gameObject.GetComponent<Package>().Color;
 
-        Destroy(other.gameObject);
+        Destroy(other.gameObject, 2);
 
         _levelModel.IncrementPackageCount(_color == packageColor);
 
