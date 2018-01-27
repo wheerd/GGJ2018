@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using ModestTree;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
