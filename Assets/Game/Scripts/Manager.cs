@@ -53,7 +53,7 @@ namespace de.deichkrieger.stateMachine
 			_levelLostSignal -= OnLevelLostSignal;
 			_levelWinSignal -= OnLevelWinSignal;
 			_levelChoseSignal -= OnLevelChoseSignal;
-			_levelNumberStartSignal += OnLevelSignal;
+			_levelNumberStartSignal -= OnLevelSignal;
 		}
 
 		public void OnLevelChoseSignal()

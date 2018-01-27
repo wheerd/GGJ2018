@@ -36,6 +36,7 @@ public class ScrollPanel : MonoBehaviour
 				newButton.SetBlocked();
 			}
 			
+			newButton.gameObject.SetActive(true);
 			newButton.gameObject.transform.SetParent(transform);
 		}
 	}

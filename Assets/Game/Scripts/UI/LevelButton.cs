@@ -11,12 +11,17 @@ public class LevelButton : MonoBehaviour
 	[SerializeField]
 	Button _button;
 	
-	[Inject]
-	private LevelNumberStartSignal _levelNumberStartSignal;
+	[SerializeField]
+	private LevelChoseUI _levelChoseUi;
+
+	private bool _isAllowed = true;
 
 	public void StartLevel()
 	{
-		_levelNumberStartSignal.Fire(int.Parse(_text.text));
+		if (_isAllowed)
+		{
+			_levelChoseUi.StartLevel(int.Parse(_text.text));
+		}
 	}
 	
 	public void SetLevel(int level)
@@ -27,16 +32,19 @@ public class LevelButton : MonoBehaviour
 	public void SetPlayed()
 	{
 		SetColor(Color.green);
+		_isAllowed = true;
 	}
 
 	public void SetPlayable()
 	{
 		SetColor(Color.yellow);
+		_isAllowed = true;
 	}
 
 	public void SetBlocked()
 	{
 		SetColor(Color.red);
+		_isAllowed = false;
 	}
 	
 	private void SetColor(Color color)

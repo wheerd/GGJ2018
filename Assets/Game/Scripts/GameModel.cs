@@ -15,6 +15,11 @@ public class GameModel
 	{
 		RestorePlayedLevels();
 	}
+
+	public int GetLastLevel()
+	{
+		return _lastLevel;
+	}
 	
 	public int GetCurrentLevel()
 	{
@@ -68,12 +73,14 @@ public class GameModel
 
 	private bool IsLevelAllowed(int level)
 	{
+		Debug.Log("Is level allowed " + level);
+		Debug.Log("Number of played levels " + _finishedLevels.Count);
 		if (level == 1)
 		{
 			return true;
 		} 
 		
-		if (level > 1 || level <= 2) // tutorials
+		if (level > 1 && level <= 2) // tutorials
 		{
 			return _finishedLevels.Contains(level - 1);
 		}
@@ -83,7 +90,7 @@ public class GameModel
 			return _finishedLevels.Contains(2);
 		} 
 		
-		return (level - 3) >= _finishedLevels.Count;
+		return _finishedLevels.Count >= level - 3;
 	}
 	
 	public void LoseCurrentLevel()
@@ -136,6 +143,13 @@ public class GameModel
 		ListHolder listHolder = JsonUtility.FromJson<ListHolder>(json);
 		_finishedLevels = listHolder.list;
 	}
-	
-	
+
+
+	public void ResetState()
+	{
+		_finishedLevels = new List<int>();
+		_currentLevel = 0;
+		_lastLevel = 0;
+		SavePlayedLevels();
+	}
 }

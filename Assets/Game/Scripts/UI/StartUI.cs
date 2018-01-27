@@ -5,6 +5,9 @@ using Zenject;
 public class StartUI : MonoBehaviour {
 
 	[Inject]
+	GameModel _gameModel;
+	
+	[Inject]
 	private GameHighscoreSignal _highscoreSignal;
 	
 	[Inject]
@@ -34,5 +37,10 @@ public class StartUI : MonoBehaviour {
 	public void ChoseLevel()
 	{
 		_levelChoseSignal.Fire();
+	}
+
+	public void ResetState()
+	{
+		_gameModel.ResetState();
 	}
 }
