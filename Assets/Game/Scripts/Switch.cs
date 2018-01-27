@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,13 @@ public class Switch : MonoBehaviour
 
     private Queue<GameObject> packages = new Queue<GameObject>();
 
-	private void Update ()
+    private void Start()
+    {
+        UpdateSwitchExit();
+        UpdateRotation();
+    }
+
+    private void Update ()
     {
         if (packages.Any())
         {
@@ -24,6 +31,63 @@ public class Switch : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        UpdateSwitchExit();
+    }
+
+    private void UpdateSwitchExit()
+    {
+        SwitchExit newExit;
+        var values = Enum.GetValues(typeof(SwitchExit)).Cast<SwitchExit>();
+        var currentExit = SwitchExit;
+
+        if (currentExit == values.Last())
+        {
+            newExit = values.First();
+        }
+        else
+        {
+            newExit = currentExit + 1;
+        }
+
+        if (SwitchType != SwitchType.ThreeWay && newExit == SwitchExit.Ahead)
+        {
+            newExit++;
+        }
+
+        SetSwitchExit(newExit);
+    }
+
+    private void SetSwitchExit(SwitchExit switchExit)
+    {
+        SwitchExit = switchExit;
+        UpdateRotation();
+    }
+
+    private void UpdateRotation()
+    {
+        var top = transform.GetChild(1);
+        float yAngle;
+
+        switch (SwitchExit)
+        {
+            case SwitchExit.Ahead:
+                yAngle = 180;
+                break;
+            case SwitchExit.Left:
+                yAngle = 90;
+                break;
+            case SwitchExit.Right:
+                yAngle = -90;
+                break;
+            default:
+                throw new Exception();
+        }
+        
+        top.transform.rotation = Quaternion.Euler(0, yAngle, 0);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(Tags.Package))
@@ -31,8 +95,8 @@ public class Switch : MonoBehaviour
             var position = transform.position;
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
 
-            rigidBody.MovePosition(position);
             rigidBody.velocity = Vector3.zero;
+            rigidBody.MovePosition(position);
             rigidBody.isKinematic = true;
 
             packages.Enqueue(other.gameObject);
