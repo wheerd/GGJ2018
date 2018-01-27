@@ -5,6 +5,12 @@ using Zenject;
 
 public class GateCollider : MonoBehaviour
 {
+    
+    [SerializeField] private AudioClip _successSound;
+    [SerializeField] private AudioClip _failsSound;
+
+    [Inject] private PlayMusicClipSignal _playMusicClipSignal;
+    
     [Inject]
     private LevelModel _levelModel;
 
@@ -25,8 +31,10 @@ public class GateCollider : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.CompareTag("package") || _collidedPackages.Contains(other.gameObject))
+        {
             return;
-        
+        }
+
         _collidedPackages.Add(other.gameObject);
 
         var packageColor = other.gameObject.GetComponent<Package>().Color;
@@ -34,5 +42,14 @@ public class GateCollider : MonoBehaviour
         Destroy(other.gameObject);
 
         _levelModel.IncrementPackageCount(_color == packageColor);
+
+        if (_color == packageColor)
+        {
+            _playMusicClipSignal.Fire(_successSound);
+        }
+        else
+        {
+            _playMusicClipSignal.Fire(_failsSound);
+        }
     }
 }

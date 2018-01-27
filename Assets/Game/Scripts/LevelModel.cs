@@ -8,6 +8,8 @@ using Object = UnityEngine.Object;
 
 public class LevelModel : IInitializable
 {
+    [Inject] private GameConfig _gameConfig;
+    
     public int CorrectPackageCount { get; private set; }
 
     public int TotalPackageCount { get; private set; }
@@ -30,11 +32,17 @@ public class LevelModel : IInitializable
         if(correct) CorrectPackageCount++;
         TotalPackageCount++;
 
-        CheckGameEnd();
+        CheckGameEnd(correct);
     }
 
-    private void CheckGameEnd()
+    private void CheckGameEnd(bool lastWasCorrect)
     {
+        if (_gameConfig.ImmediateFail && !lastWasCorrect)
+        {
+            _levelLostSignal.Fire();
+        }
+        
+        
         if (TotalPackageCount != ExpectedPackageCount) return;
 
         if (CorrectPackageCount == ExpectedPackageCount)
