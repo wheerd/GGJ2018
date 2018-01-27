@@ -118,10 +118,10 @@ public class Switch : MonoBehaviourWithCursor
                 Bottom.OutputAngle = 0;
                 break;
             case SwitchExit.Left:
-                Bottom.OutputAngle = 90;
+                Bottom.OutputAngle = -90;
                 break;
             case SwitchExit.Right:
-                Bottom.OutputAngle = -90;
+                Bottom.OutputAngle = 90;
                 break;
             default:
                 throw new Exception();
