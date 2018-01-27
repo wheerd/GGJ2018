@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Switch : MonoBehaviourWithCursor
 {
@@ -20,6 +21,7 @@ public class Switch : MonoBehaviourWithCursor
 
     private void Start()
     {
+        GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
         UpdateSwitchExit();
         UpdateRotation();
     }
