@@ -73,5 +73,10 @@ public class HighscoreModel {
 		ListHolder listModel = JsonUtility.FromJson<ListHolder>(json);
 		Highscores = listModel.list;
 	}
-	
+
+	public void ResetState()
+	{
+		Highscores = new List<HighscoreEntry>();
+		SaveHighscore();
+	}
 }

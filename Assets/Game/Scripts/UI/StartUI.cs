@@ -8,6 +8,9 @@ public class StartUI : MonoBehaviour {
 	GameModel _gameModel;
 	
 	[Inject]
+	HighscoreModel _highscoreModel;
+	
+	[Inject]
 	private GameHighscoreSignal _highscoreSignal;
 	
 	[Inject]
@@ -42,6 +45,7 @@ public class StartUI : MonoBehaviour {
 	public void ResetState()
 	{
 		_gameModel.ResetState();
+		_highscoreModel.ResetState();
 	}
 
 	public void ExitGame()
