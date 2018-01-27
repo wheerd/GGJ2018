@@ -1,5 +1,4 @@
 ﻿using ModestTree;
-using UnityEditor;
 using UnityEngine;
 
 public class Gate : MonoBehaviour
@@ -27,9 +26,11 @@ public class Gate : MonoBehaviour
 
     void OnValidate()
     {
-        if (PrefabUtility.GetPrefabParent(gameObject) != null)
+        #if UNITY_EDITOR
+        if (UnityEditor.PrefabUtility.GetPrefabParent(gameObject) != null)
         {
             UpdateColor();
         }
+        #endif
     }
 }
