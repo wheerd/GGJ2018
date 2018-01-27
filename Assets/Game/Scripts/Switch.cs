@@ -13,7 +13,9 @@ public class Switch : MonoBehaviour
 
     public float OutputSpeed = 5.0f;
 
-    private Queue<GameObject> packages = new Queue<GameObject>();
+    private readonly Queue<GameObject> _packageQueue = new Queue<GameObject>();
+
+    private readonly HashSet<GameObject> _ignored = new HashSet<GameObject>();
 
     private void Start()
     {
@@ -23,10 +25,9 @@ public class Switch : MonoBehaviour
 
     private void Update ()
     {
-        if (packages.Any())
+        if (_packageQueue.Any())
         {
-            var package = packages.Dequeue();
-            print("Dequeue " + package.transform.name);
+            var package = _packageQueue.Dequeue();
             MovePackageToExit(package, SwitchExit);
         }
     }
@@ -92,6 +93,9 @@ public class Switch : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Package))
         {
+            if (_ignored.Contains(other.gameObject)) return;
+            _ignored.Add(other.gameObject);
+
             var position = transform.position;
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
 
@@ -99,14 +103,20 @@ public class Switch : MonoBehaviour
             rigidBody.MovePosition(position);
             rigidBody.isKinematic = true;
 
-            packages.Enqueue(other.gameObject);
+            _packageQueue.Enqueue(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(Tags.Package))
+        {
+            _ignored.Remove(other.gameObject);
         }
     }
 
     private void MovePackageToExit(GameObject gameObject, SwitchExit exit)
     {
-        print(string.Format("Moving package {0} to exit {1}", gameObject.transform.name, exit));
-
         var rigidBody = gameObject.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
 
