@@ -26,6 +26,8 @@ namespace de.deichkrieger.stateMachine
 		[Inject] private LevelNumberStartSignal _levelNumberStartSignal;
 		[Inject] private PauseSignal _pauseSignal;
 
+		[SerializeField] private bool InitiateStartScene = true;
+		
 		private Stack<StateInterface> _currentStates = new Stack<StateInterface> ();
 		bool _isPaused = false;
 
@@ -44,7 +46,10 @@ namespace de.deichkrieger.stateMachine
 
 		void Start()
 		{
-			_gameStartSignal.Fire();
+			if (InitiateStartScene)
+			{
+				_gameStartSignal.Fire();
+			}
 		}
 
 		void OnDestroy ()
