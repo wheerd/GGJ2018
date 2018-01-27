@@ -4,7 +4,12 @@ public class Walkway : MonoBehaviour {
 
     public float WalkwaySpeed = 5.0f;
 
-    void Update()
+    private void Update()
+    {
+        UpdateMovingAnimation();
+    }
+
+    private void UpdateMovingAnimation()
     {
         var material = GetComponent<MeshRenderer>().material;
         var offset = material.GetTextureOffset("_MainTex");
