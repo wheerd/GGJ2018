@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 33872139568032680}
   - component: {fileID: 65606104436393638}
   - component: {fileID: 23966765602221930}
+  - component: {fileID: 114663217361243264}
   m_Layer: 0
   m_Name: SwitchBottom
   m_TagString: Untagged
@@ -140,10 +141,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4242000630900586}
-  - component: {fileID: 33035861426339218}
-  - component: {fileID: 65922204727491486}
-  - component: {fileID: 23319849894277394}
   - component: {fileID: 114159212227735512}
+  - component: {fileID: 65639444078446808}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -191,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653134262146788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.76, z: 0}
   m_LocalScale: {x: 4, y: 3, z: 4}
   m_Children:
   - {fileID: 4613648548940042}
@@ -206,7 +205,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1033732110193536}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0.501, z: 0}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_Children: []
@@ -226,40 +225,6 @@ Transform:
   m_Father: {fileID: 4242000630900586}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23319849894277394
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653134262146788}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!23 &23814877022597652
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -328,13 +293,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33035861426339218
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653134262146788}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33610811001451232
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -375,7 +333,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65922204727491486
+--- !u!65 &65639444078446808
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -385,7 +343,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114053724012793868
 MonoBehaviour:
@@ -431,7 +389,8 @@ MonoBehaviour:
   InputMode: 0
   OutputSpeed: 5
   slider: {fileID: 114778999573581424}
-  SwitchType: 0
+  SwitchType: 1
+  Bottom: {fileID: 114663217361243264}
 --- !u!114 &114198261532707862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -529,6 +488,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114663217361243264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243156372958512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fa42c7e512fe5478a7bd6dc749c982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutputAngle: 90
+  Speed: 5
 --- !u!114 &114778999573581424
 MonoBehaviour:
   m_ObjectHideFlags: 1
