@@ -124,7 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309eec1f9142df34eaa09b219323930a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0, g: 0, b: 0, a: 0}
+  Color: 0
+  State: 0
+  UnknownMaterial: {fileID: 2100000, guid: 4bd271536324b3e48b651223dd3259e3, type: 2}
 --- !u!135 &135232221804609094
 SphereCollider:
   m_ObjectHideFlags: 1

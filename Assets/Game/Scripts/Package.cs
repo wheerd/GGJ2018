@@ -9,6 +9,8 @@ public class Package : MonoBehaviour
 
     public PackageState State;
 
+    public Material UnknownMaterial;
+
     private float _maxSpeed;
 
     private bool _fading;
@@ -49,10 +51,7 @@ public class Package : MonoBehaviour
 
         if (State == PackageState.Blank)
         {
-            var material = Resources.FindObjectsOfTypeAll(typeof(Material))
-                                    .Cast<Material>()
-                                    .FirstOrDefault(m => m.name == "PackageUnknown");
-            meshRenderer.material = material;
+            meshRenderer.material = UnknownMaterial;
             return;
         }
 
