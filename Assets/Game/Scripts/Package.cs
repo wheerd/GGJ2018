@@ -11,6 +11,13 @@ public class Package : MonoBehaviour
 
     public PackageColor Color;
 
+    private bool _fading;
+
+    public void Fade()
+    {
+        _fading = true;
+    }
+
 	void Start ()
 	{
 	    _maxSpeed = 0;
@@ -26,10 +33,26 @@ public class Package : MonoBehaviour
     {
         _maxSpeed = Math.Max(_maxSpeed, speed);
     }
-	
-	void LateUpdate ()
+
+    void Update()
+    {
+        var body = GetComponent<Rigidbody>();
+        if (!_fading || !body.IsSleeping()) return;
+        
+        var floorCollider = FindObjectOfType<Floor>().GetComponent<Collider>();
+        foreach (var collider in GetComponents<Collider>())
+        {
+            Physics.IgnoreCollision(floorCollider, collider);
+        }
+
+        body.drag = 5;
+        Destroy(gameObject, 5);
+        _fading = false;
+    }
+
+    void LateUpdate ()
 	{
-	    if (_maxSpeed > 0)
+	    if (_maxSpeed > 0 && !_fading)
 	    {
 	        var body = GetComponent<Rigidbody>();
 
