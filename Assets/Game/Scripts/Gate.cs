@@ -1,13 +1,22 @@
 ﻿using ModestTree;
+using UnityEditor;
 using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
     public PackageColor Color;
 
+    private Material _material;
+
     private void UpdateColor()
     {
-        GetComponentsInChildren<MeshRenderer>().ForEach(r => r.material.color = Color.ToColor());
+        if (_material == null)
+        {
+            _material = new Material(GetComponentInChildren<Renderer>().sharedMaterial);
+            GetComponentsInChildren<Renderer>().ForEach(r => r.sharedMaterial = _material);
+        }
+
+        _material.color = Color.ToColor();
         GetComponentInChildren<GateCollider>().SetColor(Color);
     }
 
@@ -18,6 +27,9 @@ public class Gate : MonoBehaviour
 
     void OnValidate()
     {
-        UpdateColor();
+        if (PrefabUtility.GetPrefabParent(gameObject) != null)
+        {
+            UpdateColor();
+        }
     }
 }
