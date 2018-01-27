@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +10,8 @@ public class Spawner : MonoBehaviour
         public float TimeBefore;
 
         public PackageColor Color;
+
+        public PackageState State;
     }
 
     private int _index;
@@ -22,14 +23,14 @@ public class Spawner : MonoBehaviour
     public GameObject Package;
 
     public List<PackageSpawn> PackageSpawns = new List<PackageSpawn>();
-    
-    void Start ()
+
+    private void Start ()
     {
         _index = 0;
         _elapsed = 0;
     }
 
-    void AnimateTexture()
+    private void AnimateTexture()
     {
         var material = GetComponent<MeshRenderer>().material;
         var offset = material.GetTextureOffset("_MainTex");
@@ -37,7 +38,7 @@ public class Spawner : MonoBehaviour
         material.SetTextureOffset("_MainTex", offset);
     }
 
-    void Update ()
+    private void Update ()
     {
         //AnimateTexture();
 
@@ -50,6 +51,7 @@ public class Spawner : MonoBehaviour
 
         var nextSpawnTime = PackageSpawns[_index].TimeBefore;
         var nextColor = PackageSpawns[_index].Color;
+        var nextState = PackageSpawns[_index].State;
 
         if (!(_elapsed > nextSpawnTime)) return;
 
@@ -60,6 +62,7 @@ public class Spawner : MonoBehaviour
         var package = Instantiate(Package, position, Quaternion.identity);
 
         package.GetComponent<Package>().Color = nextColor;
+        package.GetComponent<Package>().State = nextState;
         package.name = string.Format("Package {0}", _index);
         
         package.gameObject.transform.SetParent(transform);
@@ -67,7 +70,7 @@ public class Spawner : MonoBehaviour
         _index++;
     }
 
-    void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (!collision.gameObject.CompareTag("package"))
             return;

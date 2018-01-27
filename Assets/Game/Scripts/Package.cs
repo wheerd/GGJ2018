@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Package : MonoBehaviour
 {
-    private float _maxSpeed;
-
     public PackageColor Color;
 
+    public PackageState State;
+
+    private float _maxSpeed;
+
     private bool _fading;
+
+    private Material _defaultMaterial;
 
     public void Fade()
     {
@@ -18,17 +23,41 @@ public class Package : MonoBehaviour
     void Start ()
     {
         _maxSpeed = 0;
+        _defaultMaterial = GetComponent<MeshRenderer>().material;
         transform.localScale.Scale(new Vector3(
             Random.Range(0.9f, 1.1f),
             Random.Range(0.9f, 1.1f),
             Random.Range(0.9f, 1.1f)));
 
-        GetComponent<MeshRenderer>().material.color = Color.ToColor();
+        UpdateColor();
     }
 
     public void UpdateMaxBeltSpeed(float speed)
     {
         _maxSpeed = Math.Max(_maxSpeed, speed);
+    }
+
+    public void SetState(PackageState state)
+    {
+        State = state;
+        UpdateColor();
+    }
+
+    private void UpdateColor()
+    {
+        var meshRenderer = GetComponent<MeshRenderer>();
+
+        if (State == PackageState.Blank)
+        {
+            var material = Resources.FindObjectsOfTypeAll(typeof(Material))
+                                    .Cast<Material>()
+                                    .FirstOrDefault(m => m.name == "PackageUnknown");
+            meshRenderer.material = material;
+            return;
+        }
+
+        meshRenderer.material = _defaultMaterial;
+        meshRenderer.material.color = Color.ToColor();
     }
 
     void Update()
@@ -57,4 +86,10 @@ public class Package : MonoBehaviour
             _maxSpeed = 0;
         }
     }
+}
+
+public enum PackageState
+{
+    Normal,
+    Blank
 }
