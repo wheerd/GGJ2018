@@ -13,9 +13,9 @@ public class Switch : MonoBehaviour
 
     public float OutputSpeed = 5.0f;
 
-    private readonly Queue<GameObject> _packageQueue = new Queue<GameObject>();
+    private readonly Queue<GameObject> packageQueue = new Queue<GameObject>();
 
-    private readonly HashSet<GameObject> _ignored = new HashSet<GameObject>();
+    private readonly HashSet<GameObject> ignored = new HashSet<GameObject>();
 
     private void Start()
     {
@@ -25,9 +25,9 @@ public class Switch : MonoBehaviour
 
     private void Update ()
     {
-        if (_packageQueue.Any())
+        if (packageQueue.Any())
         {
-            var package = _packageQueue.Dequeue();
+            var package = packageQueue.Dequeue();
             MovePackageToExit(package, SwitchExit);
         }
     }
@@ -93,8 +93,8 @@ public class Switch : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Package))
         {
-            if (_ignored.Contains(other.gameObject)) return;
-            _ignored.Add(other.gameObject);
+            if (ignored.Contains(other.gameObject)) return;
+            ignored.Add(other.gameObject);
 
             var position = transform.position;
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
@@ -103,7 +103,7 @@ public class Switch : MonoBehaviour
             rigidBody.MovePosition(position);
             rigidBody.isKinematic = true;
 
-            _packageQueue.Enqueue(other.gameObject);
+            packageQueue.Enqueue(other.gameObject);
         }
     }
 
@@ -111,7 +111,7 @@ public class Switch : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Package))
         {
-            _ignored.Remove(other.gameObject);
+            ignored.Remove(other.gameObject);
         }
     }
 

@@ -63,7 +63,6 @@ public class Spawner : MonoBehaviour
 	    package.name = string.Format("Package {0}", _index);
         
         package.gameObject.transform.SetParent(transform);
-        ;
 
         _index++;
 	}
