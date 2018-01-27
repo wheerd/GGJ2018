@@ -23,11 +23,6 @@ public class GateCollider : MonoBehaviour
         _color = color;
     }
 
-    void Update()
-    {
-        _collidedPackages.Clear();
-    }
-
     void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.CompareTag("package") || _collidedPackages.Contains(other.gameObject))
