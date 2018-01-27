@@ -26,6 +26,6 @@ public class Scanner : MonoBehaviour
     {
         var rigidBody = gameObject.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
-        rigidBody.velocity = transform.forward * OutputSpeed;
+        rigidBody.velocity = transform.forward * -1 * OutputSpeed;
     }
 }
