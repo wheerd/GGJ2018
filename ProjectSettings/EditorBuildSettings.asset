@@ -95,3 +95,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/LevelChoseScene.unity
     guid: 2f1d464e8eac9414496f2ac4423f2c82
+  - enabled: 1
+    path: Assets/Game/Scenes/ManuelTest.unity
+    guid: a86f46ce03500ee42bbc3303c6c776a9
