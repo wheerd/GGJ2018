@@ -168,7 +168,7 @@ public class Spawner : MonoBehaviour
         package.GetComponent<Package>().State = nextState;
         package.name = string.Format("Package {0}", _index);
         
-        package.gameObject.transform.SetParent(transform);
+        package.gameObject.transform.SetParent(transform.parent);
     }
 
     private void OnCollisionStay(Collision collision)
