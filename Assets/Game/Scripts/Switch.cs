@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Assets.Game.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
-
-public enum InputMode
-{
-    Single,
-    Hold,
-    OneSecond,
-    ButtonMash
-}
 
 public class Switch : MonoBehaviourWithCursor
 {
@@ -31,6 +21,7 @@ public class Switch : MonoBehaviourWithCursor
     public float OutputSpeed = 5.0f;
 
     public Slider slider;
+
     public SwitchType SwitchType;
 
     public SwitchBottom Bottom;
@@ -129,6 +120,14 @@ public class Switch : MonoBehaviourWithCursor
 
         top.transform.rotation = Quaternion.Euler(0, 180 + Bottom.OutputAngle, 0);
     }
+}
+
+public enum InputMode
+{
+    Single,
+    Hold,
+    OneSecond,
+    ButtonMash
 }
 
 public enum SwitchType
