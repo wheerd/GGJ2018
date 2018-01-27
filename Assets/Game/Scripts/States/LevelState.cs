@@ -38,7 +38,7 @@ public class LevelState : DefaultState
 
 	private string GetLevelSceneName()
 	{
-		return "ManuelTest";
+		//return "ManuelTest";
 		return string.Format("Level_{0:000}Scene", _gameModel.GetCurrentLevel());
 	}
 }
