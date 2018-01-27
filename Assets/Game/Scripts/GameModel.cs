@@ -47,7 +47,7 @@ public class GameModel
 		
 		return _finishedLevels.Count + 3;
 	}
-
+	
 	public int GetLastFinishedLevel()
 	{
 		if (GetFinishedLevels().Count == 0)

@@ -1,4 +1,5 @@
 ﻿using de.deichkrieger.stateMachine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelState : DefaultState
@@ -9,7 +10,7 @@ public class LevelState : DefaultState
 	public LevelState(GameModel gameModel)
 	{
 		_gameModel = gameModel;
-		_nextLevel = _gameModel.GetLastFinishedLevel() + 1;
+		SetNextLevel(_gameModel.GetLastFinishedLevel() + 1);
 	}
 
 	public void SetNextLevel(int nextLevel)
