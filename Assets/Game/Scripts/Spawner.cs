@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     {
         public float TimeBefore;
 
-        public Color Color;
+        public PackageColor Color;
     }
 
     private int _index;
@@ -50,8 +50,9 @@ public class Spawner : MonoBehaviour
 	    var package = Instantiate(Package, position, Quaternion.identity);
 
 	    package.GetComponent<Package>().Color = nextColor;
+	    package.name = string.Format("Package {0}", _index);
 
-	    _index++;
+        _index++;
 	}
 
     void OnCollisionStay(Collision collision)

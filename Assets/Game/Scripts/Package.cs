@@ -9,7 +9,7 @@ public class Package : MonoBehaviour
 {
     private float _maxSpeed;
 
-    public Color Color;
+    public PackageColor Color;
 
 	void Start ()
 	{
@@ -19,7 +19,7 @@ public class Package : MonoBehaviour
             Random.Range(0.9f, 1.1f),
             Random.Range(0.9f, 1.1f)));
 
-	    GetComponent<MeshRenderer>().material.color = Color;
+	    GetComponent<MeshRenderer>().material.color = Color.ToColor();
 	}
 
     public void UpdateMaxBeltSpeed(float speed)

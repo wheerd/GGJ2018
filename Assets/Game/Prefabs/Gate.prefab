@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4380937828661994}
+  - component: {fileID: 114579551996462522}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -73,7 +74,6 @@ GameObject:
   - component: {fileID: 114110135545635258}
   - component: {fileID: 33555023386193232}
   - component: {fileID: 23039647659441364}
-  - component: {fileID: 114539356860351290}
   - component: {fileID: 64069035074570702}
   m_Layer: 0
   m_Name: Funnel
@@ -435,17 +435,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd721b5fd84af06498347463bdd6a94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114539356860351290
+--- !u!114 &114579551996462522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542930441332292}
+  m_GameObject: {fileID: 1067500605350644}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18131c803eb1dcb4fa47c326606a81f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: 0
 --- !u!114 &114760248194590248
 MonoBehaviour:
   m_ObjectHideFlags: 1
