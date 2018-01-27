@@ -30,6 +30,8 @@ public class Switch : MonoBehaviourWithCursor
     {
         slider.gameObject.SetActive(false);
         GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
+
+        Bottom.Speed = OutputSpeed;
         
         #if UNITY_ANDROID || UNITY_IOS
         GetComponentInChildren<Text>().transform.parent.gameObject.SetActive(false);
@@ -106,24 +108,24 @@ public class Switch : MonoBehaviourWithCursor
 
     private void UpdateRotation()
     {
-        var top = transform.GetChild(1);
+        float angle;
 
         switch (currentExit)
         {
-            case SwitchExit.Ahead:
-                Bottom.OutputAngle = 0;
-                break;
             case SwitchExit.Left:
-                Bottom.OutputAngle = -90;
+                angle = -90;
+                break;
+            case SwitchExit.Ahead:
+                angle = 0;
                 break;
             case SwitchExit.Right:
-                Bottom.OutputAngle = 90;
+                angle = 90;
                 break;
             default:
                 throw new Exception();
         }
 
-        top.transform.rotation = Quaternion.Euler(0, 180 + Bottom.OutputAngle, 0);
+        Bottom.transform.rotation = Quaternion.Euler(0, angle, 0);
     }
 }
 
