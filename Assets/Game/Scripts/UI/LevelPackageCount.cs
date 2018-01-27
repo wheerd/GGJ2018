@@ -13,6 +13,6 @@ public class LevelPackageCount : MonoBehaviour
 	{
 	    var text = GetComponent<Text>();
 
-	    text.text = string.Format("Packages: {0}", _levelModel.PackageCount);
+	    text.text = string.Format("Packages: {0}/{1}", _levelModel.CorrectPackageCount, _levelModel.ExpectedPackageCount);
 	}
 }

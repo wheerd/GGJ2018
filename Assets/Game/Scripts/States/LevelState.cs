@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class LevelState : DefaultState
 {
 	private GameModel _gameModel;
-	private int _nextLevel;
+    private LevelModel _levelModel;
+    private int _nextLevel;
 	
-	public LevelState(GameModel gameModel)
+	public LevelState(GameModel gameModel, LevelModel levelModel)
 	{
 		_gameModel = gameModel;
-		SetNextLevel(_gameModel.GetLastFinishedLevel() + 1);
+	    _levelModel = levelModel;
+	    SetNextLevel(_gameModel.GetLastFinishedLevel() + 1);
 	}
 
 	public void SetNextLevel(int nextLevel)
@@ -21,8 +23,10 @@ public class LevelState : DefaultState
 	override public void Load ()
 	{
 		_gameModel.PlayNextLevel(_nextLevel);
-		
-		SceneManager.LoadScene (GetLevelSceneName(), LoadSceneMode.Additive);
+	    _levelModel.ResetLevel();
+
+
+        SceneManager.LoadScene (GetLevelSceneName(), LoadSceneMode.Additive);
 		SceneManager.LoadScene ("LevelUI", LoadSceneMode.Additive);
 	}
 

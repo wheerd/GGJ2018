@@ -1,18 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using de.deichkrieger.stateMachine;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 public class LevelModel : IInitializable
 {
-    public int PackageCount { get; private set; }
+    public int CorrectPackageCount { get; private set; }
+
+    public int TotalPackageCount { get; private set; }
+
+    public int ExpectedPackageCount { get; private set; }
 
     public float Timer { get; private set; }
 
-    public void IncrementPackageCount()
+    private readonly LevelWinSignal _levelWinSignal;
+    private readonly LevelLostSignal _levelLostSignal;
+
+    public LevelModel(LevelWinSignal levelWinSignal, LevelLostSignal levelLostSignal)
     {
-        PackageCount++;
+        _levelWinSignal = levelWinSignal;
+        _levelLostSignal = levelLostSignal;
+    }
+
+    public void IncrementPackageCount(bool correct)
+    {
+        if(correct) CorrectPackageCount++;
+        TotalPackageCount++;
+
+        CheckGameEnd();
+    }
+
+    private void CheckGameEnd()
+    {
+        if (TotalPackageCount != ExpectedPackageCount) return;
+
+        if (CorrectPackageCount == ExpectedPackageCount)
+        {
+            _levelWinSignal.Fire();
+        }
+        else
+        {
+            _levelLostSignal.Fire();
+        }
     }
 
     public void IncrementTime()
@@ -27,7 +59,9 @@ public class LevelModel : IInitializable
 
     public void ResetLevel()
     {
-        PackageCount = 0;
+        CorrectPackageCount = 0;
+        TotalPackageCount = 0;
         Timer = 0;
+        ExpectedPackageCount = Object.FindObjectsOfType<Spawner>().Sum(s => s.PackageSpawns.Count);
     }
 }
