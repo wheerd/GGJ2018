@@ -31,7 +31,7 @@ public class Switch : MonoBehaviourWithCursor
         slider.gameObject.SetActive(false);
         GetComponentInChildren<Text>().text = Hotkey.Substring(Hotkey.Length - 1);
         
-        #if UNITY_ANDROID
+        #if UNITY_ANDROID || UNITY_IOS
         GetComponentInChildren<Text>().transform.parent.gameObject.SetActive(false);
         #endif
         
