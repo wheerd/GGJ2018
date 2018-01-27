@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30512df8fec7df4da27e26fa48c218f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CursorTexture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
   SwitchType: 0
   SwitchExit: 1
   OutputSpeed: 5

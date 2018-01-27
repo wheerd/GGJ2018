@@ -1,11 +1,10 @@
 ﻿using Assets.Game.Scripts;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Switch : MonoBehaviour
+public class Switch : MonoBehaviourWithCursor
 {
     public SwitchType SwitchType;
 
