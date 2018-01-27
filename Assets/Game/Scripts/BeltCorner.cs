@@ -6,6 +6,14 @@ public class BeltCorner : MonoBehaviour {
 
     public float Speed = 5.0f;
 
+    void Update()
+    {
+        var material = GetComponent<MeshRenderer>().material;
+        var offset = material.GetTextureOffset("_MainTex");
+        offset.y -= Time.deltaTime * Speed / 2;
+        material.SetTextureOffset("_MainTex", offset);
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("package"))

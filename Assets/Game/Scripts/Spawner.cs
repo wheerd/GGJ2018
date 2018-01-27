@@ -27,11 +27,21 @@ public class Spawner : MonoBehaviour
     {
         _index = 0;
         _elapsed = 0;
-	}
-	
-	void Update ()
-	{
-	    _elapsed += Time.deltaTime;
+    }
+
+    void AnimateTexture()
+    {
+        var material = GetComponent<MeshRenderer>().material;
+        var offset = material.GetTextureOffset("_MainTex");
+        offset.y -= Time.deltaTime * Speed / 2;
+        material.SetTextureOffset("_MainTex", offset);
+    }
+
+    void Update ()
+    {
+        AnimateTexture();
+
+        _elapsed += Time.deltaTime;
 
 	    if (_index >= PackageSpawns.Count)
 	    {
