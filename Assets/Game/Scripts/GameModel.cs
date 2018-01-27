@@ -103,6 +103,7 @@ public class GameModel
 		if (_currentLevel != 0)
 		{
 			_finishedLevels.Add(_currentLevel);
+			_finishedLevels = _finishedLevels.Distinct().ToList();
 			_currentLevel = 0;
 
 			SavePlayedLevels();
