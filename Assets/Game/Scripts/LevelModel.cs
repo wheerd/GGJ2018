@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
 using de.deichkrieger.stateMachine;
 using UnityEngine;
@@ -21,6 +20,15 @@ public class LevelModel : IInitializable
     private readonly LevelWinSignal _levelWinSignal;
     private readonly LevelLostSignal _levelLostSignal;
 
+    private bool _lost = false;
+
+    private MonoBehaviour _monoBehaviour;
+
+    private MonoBehaviour MonoBehaviour
+    {
+        get { return _monoBehaviour ?? (_monoBehaviour = Object.FindObjectOfType<MonoBehaviour>()); }
+    }
+
     public LevelModel(LevelWinSignal levelWinSignal, LevelLostSignal levelLostSignal)
     {
         _levelWinSignal = levelWinSignal;
@@ -39,9 +47,12 @@ public class LevelModel : IInitializable
     {
         if (_gameConfig.ImmediateFail && !lastWasCorrect)
         {
-            _levelLostSignal.Fire();
+            if (!_lost)
+            {
+                _lost = true;
+                MonoBehaviour.StartCoroutine(LooseLevel());
+            }
         }
-        
         
         if (TotalPackageCount != ExpectedPackageCount) return;
 
@@ -53,6 +64,12 @@ public class LevelModel : IInitializable
         {
             _levelLostSignal.Fire();
         }
+    }
+
+    private IEnumerator LooseLevel()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        _levelLostSignal.Fire();
     }
 
     public void IncrementTime()
