@@ -699,7 +699,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You lost
+  m_Text: You suck :(
 --- !u!222 &913564985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time elapsed
+  m_Text: 'Time wasted
 
 '
 --- !u!222 &1497268723
