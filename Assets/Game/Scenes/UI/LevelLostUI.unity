@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 381676523}
   - component: {fileID: 381676522}
   - component: {fileID: 381676521}
+  - component: {fileID: 381676524}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -558,6 +559,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381676519}
+--- !u!114 &381676524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381676519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb075b9e6f77044e5a14931b85362777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
+  _volume: 1
 --- !u!1 &565387136
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +974,7 @@ GameObject:
   - component: {fileID: 1951434016}
   - component: {fileID: 1951434015}
   - component: {fileID: 1951434014}
+  - component: {fileID: 1951434017}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1071,6 +1086,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951434012}
+--- !u!114 &1951434017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951434012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb075b9e6f77044e5a14931b85362777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
+  _volume: 1
 --- !u!1 &1951970864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1246,7 @@ GameObject:
   - component: {fileID: 2109426446}
   - component: {fileID: 2109426445}
   - component: {fileID: 2109426444}
+  - component: {fileID: 2109426447}
   m_Layer: 5
   m_Name: HighscoreButton
   m_TagString: Untagged
@@ -1329,3 +1358,16 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109426442}
+--- !u!114 &2109426447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109426442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb075b9e6f77044e5a14931b85362777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
+  _volume: 1
