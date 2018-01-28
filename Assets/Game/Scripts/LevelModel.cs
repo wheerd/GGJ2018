@@ -47,6 +47,7 @@ public class LevelModel : IInitializable
     {
         if (_gameConfig.ImmediateFail && !lastWasCorrect)
         {
+            Debug.Log("incorrect and immediate fail");
             if (!_lost)
             {
                 _lost = true;
