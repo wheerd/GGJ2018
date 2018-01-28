@@ -34,3 +34,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/blockchain_Data
+/blockchain.exe
+/UnityPlayer.dll
