@@ -9,7 +9,7 @@ public class StarPanel : MonoBehaviour
 
 	void Start()
 	{
-		int numberOfStars = Random.Range(1, 4);
+		int numberOfStars = Random.Range(1, 8);
 
 		for (int i = 0; i < numberOfStars; i++)
 		{
@@ -19,6 +19,8 @@ public class StarPanel : MonoBehaviour
 			
 			nextStar.transform.localScale = new Vector3( 1, 1, 1 );
 			nextStar.transform.localPosition = Vector3.zero;
-		}
+		    nextStar.transform.rotation = Quaternion.Euler(0, Random.Range(0, 180), 0);
+
+        }
 	}
 }
