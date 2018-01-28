@@ -633,7 +633,7 @@ MonoBehaviour:
     m_LineSpacing: 2
   m_Text: 'You made the first,
 
-    you can make the second'
+    can you make the second?'
 --- !u!222 &2007559750
 CanvasRenderer:
   m_ObjectHideFlags: 0
