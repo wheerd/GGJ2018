@@ -24,7 +24,7 @@ public static class PackageColorExtensions
             case PackageColor.Pink:
                 return new Color(1f, 20/255f, 147/255f);
             case PackageColor.Orange:
-                return new Color(1f, 165/255f, 0);
+                return new Color(1f, 140/255f, 0);
         }
 
         throw new ArgumentException("Invalid Color");
