@@ -51,8 +51,8 @@ PlayerSettings:
   m_ActiveColorSpace: 0
   m_MTRendering: 1
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
-  iosShowActivityIndicatorOnLoading: -1
-  androidShowActivityIndicatorOnLoading: -1
+  iosShowActivityIndicatorOnLoading: 2
+  androidShowActivityIndicatorOnLoading: 2
   tizenShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
@@ -76,7 +76,7 @@ PlayerSettings:
   Force IOS Speakers When Recording: 0
   deferSystemGesturesMode: 0
   hideHomeButton: 0
-  submitAnalytics: 1
+  submitAnalytics: 0
   usePlayerLog: 1
   bakeCollisionMeshes: 0
   forceSingleInstance: 0
@@ -569,7 +569,7 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 0
+    Android: 1
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
