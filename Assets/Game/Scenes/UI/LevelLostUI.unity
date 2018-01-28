@@ -822,6 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _packets: {fileID: 254838552}
   _time: {fileID: 36741540}
+  _levelLostSound: {fileID: 8300000, guid: 3f8a72887a4664232af9d90c89a15208, type: 3}
 --- !u!1 &1497268720
 GameObject:
   m_ObjectHideFlags: 0
