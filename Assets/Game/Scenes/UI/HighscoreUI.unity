@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Content: {fileID: 1849482447}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 978496606}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 1849482447}
   - component: {fileID: 1849482448}
   - component: {fileID: 1849482449}
+  - component: {fileID: 1849482451}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1009,7 +1010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000091552734}
+  m_AnchoredPosition: {x: 0, y: 0.00006543555}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1849482448
@@ -1048,6 +1049,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entryPrefab: {fileID: 114676634372067052, guid: 9f225963ea6ba402fb690e87a283211b,
     type: 2}
+--- !u!114 &1849482451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849482446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1 &1867206627
 GameObject:
   m_ObjectHideFlags: 0
