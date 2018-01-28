@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class Merger : MonoBehaviour
 {
     public float TimeBefore;
 
-    private int _index;
+    private int index;
 
-    private float _elapsed;
+    private float elapsed;
 
     public float OutputSpeed = 5.0f;
 
     private readonly Queue<GameObject> packageQueue = new Queue<GameObject>();
 
     private readonly HashSet<GameObject> ignored = new HashSet<GameObject>();
+
+    [Inject] private PlayMusicClipSignal playMusicClipSignal;
+
+    [SerializeField] private AudioClip packageMergedSound;
 
     private void Start ()
     {
@@ -29,13 +34,13 @@ public class Merger : MonoBehaviour
             return;
         }
 
-        _elapsed += Time.deltaTime;
+        elapsed += Time.deltaTime;
 
         var nextSpawnTime = TimeBefore;
 
-        if (!(_elapsed > nextSpawnTime)) return;
+        if (!(elapsed > nextSpawnTime)) return;
 
-        _elapsed -= nextSpawnTime;
+        elapsed -= nextSpawnTime;
 
         var package = packageQueue.Dequeue();
         MovePackageToExit(package);
@@ -66,6 +71,8 @@ public class Merger : MonoBehaviour
             rigidBody.MovePosition(position);
 
             gameObject.layer = Layers.DisabledPackages;
+
+            playMusicClipSignal.Fire(packageMergedSound);
 
             packageQueue.Enqueue(gameObject);
         }

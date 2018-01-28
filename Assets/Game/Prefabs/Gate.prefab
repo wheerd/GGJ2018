@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd721b5fd84af06498347463bdd6a94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _successSound: {fileID: 8300000, guid: 055b46805f1f74481815d1ccc3acea5e, type: 3}
-  _failsSound: {fileID: 8300000, guid: 1a9ed891f77ed41de9b1720c3fa8689f, type: 3}
+  _successSound: {fileID: 8300000, guid: 5223b66a04af840199de3babe9468a91, type: 3}
+  _failsSound: {fileID: 8300000, guid: bc7fa951eafe549c2aa79d3ad2dc8ffd, type: 3}
 --- !u!114 &114579551996462522
 MonoBehaviour:
   m_ObjectHideFlags: 1

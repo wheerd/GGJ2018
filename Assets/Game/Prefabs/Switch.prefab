@@ -297,13 +297,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CursorTexture: {fileID: 0}
+  Bottom: {fileID: 114663217361243264}
   DefaultExit: 0
-  Hotkey: Hotkey1
+  Hotkey: 0
   InputMode: 0
   OutputSpeed: 5
   slider: {fileID: 114778999573581424}
   SwitchType: 1
-  Bottom: {fileID: 114663217361243264}
+  changeSwitchSound: {fileID: 8300000, guid: bef246af506cd4ce1bc687cef4de9308, type: 3}
 --- !u!114 &114198261532707862
 MonoBehaviour:
   m_ObjectHideFlags: 1

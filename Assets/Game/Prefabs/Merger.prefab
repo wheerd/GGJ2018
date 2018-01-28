@@ -196,3 +196,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBefore: 0.5
   OutputSpeed: 5
+  packageMergedSound: {fileID: 8300000, guid: 59f153e9e7d2342adb4fbd3ce26b44ce, type: 3}

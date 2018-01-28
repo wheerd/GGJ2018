@@ -6,7 +6,11 @@ using Zenject;
 public class Spawner : MonoBehaviour
 {
     [Inject] private LevelModel _levelModel;
-    
+
+    [Inject] private PlayMusicClipSignal _playMusicClipSignal;
+
+    [SerializeField] private AudioClip[] _spawnSounds;
+
     [Serializable]
     public struct PackageSpawn
     {
@@ -135,7 +139,7 @@ public class Spawner : MonoBehaviour
         
         var position = transform.position + transform.up * 2;
 
-        CreatePaket(position, nextColor, nextState);
+        CreatePackage(position, nextColor, nextState);
 
         _index++;
     }
@@ -159,12 +163,12 @@ public class Spawner : MonoBehaviour
             
         var position = transform.position + transform.up * 2;
 
-        CreatePaket(position, nextColor, nextState);
+        CreatePackage(position, nextColor, nextState);
 
         _index++;
     }
 
-    private void CreatePaket(Vector3 position, PackageColor nextColor, PackageState nextState)
+    private void CreatePackage(Vector3 position, PackageColor nextColor, PackageState nextState)
     {
         if (nextState == PackageState.None)
         {
@@ -172,12 +176,20 @@ public class Spawner : MonoBehaviour
         }
         
         var package = Instantiate(Package, position, Quaternion.identity);
+        PlayPackageCreateSound();
 
         package.GetComponent<Package>().Color = nextColor;
         package.GetComponent<Package>().State = nextState;
         package.name = string.Format("Package {0}", _index);
         
         package.gameObject.transform.SetParent(transform.parent);
+    }
+
+    private void PlayPackageCreateSound()
+    {
+        var index = UnityEngine.Random.Range(0, _spawnSounds.Length);
+        var sound = _spawnSounds[index];
+        _playMusicClipSignal.Fire(sound);
     }
 
     private void OnCollisionStay(Collision collision)

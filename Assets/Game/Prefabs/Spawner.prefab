@@ -107,6 +107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee25d6b19bb28f459a4786a1176af08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnSounds:
+  - {fileID: 8300000, guid: 6eb9f94a6253b4ef9a36371081fc86c3, type: 3}
+  - {fileID: 8300000, guid: aaa8a676273384686afd3fde9bba6780, type: 3}
+  SimpleSequenzer: 0
+  SimplePaketSequence: 
+  SimpleSpawnOffset: 1
   Speed: 5
   Package: {fileID: 1142291961874604, guid: 00bdbf6ec53d64c4e8dd6f7bb92163ca, type: 2}
   PackageSpawns:
