@@ -11,12 +11,20 @@ public class LevelLostUI : MonoBehaviour {
 	
 	[Inject] private GameHighscoreSignal _gameHighscoreSignal;
 	
+	[Inject] private LevelNumberStartSignal _levelNumberStartSignal;
+	
 	[Inject] private LevelModel _levelModel;
+	[Inject] private GameModel _gameModel;
 
 	void Start()
 	{
 		_packets.text = _levelModel.CorrectPackageCount.ToString() + " / " + _levelModel.ExpectedPackageCount;
 		_time.text = GetTimeFormatted(_levelModel.Timer);
+	}
+
+	public void Replay()
+	{
+		_levelNumberStartSignal.Fire(_gameModel.GetLastLevel());
 	}
 	
 	public void StartGame()
