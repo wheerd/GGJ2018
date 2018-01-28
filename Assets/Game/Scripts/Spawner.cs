@@ -73,11 +73,6 @@ public class Spawner : MonoBehaviour
         if (SimpleSequenzer)
         {
             runtimeSequence = SimplePaketSequence.Split(',');
-            _levelModel.ExpectedPackageCount = runtimeSequence.Length;
-        }
-        else
-        {
-            _levelModel.ExpectedPackageCount = PackageSpawns.Count;
         }
     }
 
