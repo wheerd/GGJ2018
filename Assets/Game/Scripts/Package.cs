@@ -26,10 +26,6 @@ public class Package : MonoBehaviour
     {
         _maxSpeed = 0;
         _defaultMaterial = GetComponent<MeshRenderer>().material;
-        transform.localScale.Scale(new Vector3(
-            Random.Range(0.9f, 1.1f),
-            Random.Range(0.9f, 1.1f),
-            Random.Range(0.9f, 1.1f)));
 
         UpdateColor();
     }

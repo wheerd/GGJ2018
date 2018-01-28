@@ -15,8 +15,8 @@ public class SwitchBottom : MonoBehaviour
             var outDirection = transform.forward;
             var exit = transform.position + outDirection;
 
-            var distanceToExit = (exit - collision.rigidbody.position).sqrMagnitude;
-            var distanceToEntrance = (entrance - collision.rigidbody.position).sqrMagnitude;
+            var distanceToExit = (exit - collision.rigidbody.worldCenterOfMass).sqrMagnitude;
+            var distanceToEntrance = (entrance - collision.rigidbody.worldCenterOfMass).sqrMagnitude;
 
             var direction = distanceToExit > distanceToEntrance ? inDirection : outDirection;
 

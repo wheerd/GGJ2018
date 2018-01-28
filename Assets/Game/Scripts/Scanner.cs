@@ -1,8 +1,12 @@
 ﻿using Assets.Game.Scripts;
 using UnityEngine;
+using Zenject;
 
 public class Scanner : MonoBehaviour
 {
+    [Inject] private PlayMusicClipSignal _playMusicClipSignal;
+    [SerializeField] private AudioClip _packageScanSound;
+    
     public float OutputSpeed = 5.0f;
 
     private void OnTriggerEnter(Collider other)
@@ -19,6 +23,8 @@ public class Scanner : MonoBehaviour
 
             gameObject.GetComponent<Package>().SetState(PackageState.Normal);
             MovePackageToExit(gameObject);
+
+            _playMusicClipSignal.Fire(_packageScanSound);
         }
     }
 

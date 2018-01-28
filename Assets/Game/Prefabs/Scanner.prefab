@@ -107,4 +107,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e749fdd024a26478afd470acebd83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _packageScanSound: {fileID: 8300000, guid: 376f53a5e0755463c8d7c6c7045ccf82, type: 3}
   OutputSpeed: 5

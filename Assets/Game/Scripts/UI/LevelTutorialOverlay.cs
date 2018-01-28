@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class LevelTutorialOverlay : MonoBehaviour
 {
-
 	[SerializeField] private GameObject _overlayToHide;
 
+	
 	private float _timeScale;
 	
 	// Use this for initialization
