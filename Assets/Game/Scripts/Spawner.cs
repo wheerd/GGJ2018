@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Spawner : MonoBehaviour
 {
+    [Inject] private LevelModel _levelModel;
+    
     [Serializable]
     public struct PackageSpawn
     {
@@ -57,7 +60,7 @@ public class Spawner : MonoBehaviour
             default: return PackageState.Normal;
         }
     }
-    
+
     private void Start ()
     {
         _index = 0;
@@ -66,6 +69,11 @@ public class Spawner : MonoBehaviour
         if (SimpleSequenzer)
         {
             runtimeSequence = SimplePaketSequence.Split(',');
+            _levelModel.ExpectedPackageCount = runtimeSequence.Length;
+        }
+        else
+        {
+            _levelModel.ExpectedPackageCount = PackageSpawns.Count;
         }
     }
 

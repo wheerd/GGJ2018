@@ -13,7 +13,7 @@ public class LevelModel : IInitializable
 
     public int TotalPackageCount { get; private set; }
 
-    public int ExpectedPackageCount { get; private set; }
+    public int ExpectedPackageCount { get; set; }
 
     public float Timer { get; private set; }
 
@@ -87,6 +87,5 @@ public class LevelModel : IInitializable
         CorrectPackageCount = 0;
         TotalPackageCount = 0;
         Timer = 0;
-        ExpectedPackageCount = Object.FindObjectsOfType<Spawner>().Sum(s => s.PackageSpawns.Count);
     }
 }
