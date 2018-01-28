@@ -5,10 +5,11 @@ using Zenject;
 
 public class LevelWinUI : MonoBehaviour
 {
-
+	[SerializeField] private AudioClip _levelWinSound;
 	[SerializeField] private Text _packets;
 	[SerializeField] private Text _time;
 	
+	[Inject] private PlayMusicClipSignal _playMusicClipSignal;
 	
 	[Inject]
 	GameModel _gameModel;
@@ -33,6 +34,8 @@ public class LevelWinUI : MonoBehaviour
 		_time.text = GetTimeFormatted(_levelModel.Timer);
 		
 		AddHighscore();
+		
+		_playMusicClipSignal.Fire(_levelWinSound);
 	}
 	
 	public void StartNextLevel()
