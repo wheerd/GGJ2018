@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d0bc40328f94d8ab4026ec7593be60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLevel: 15
+  MaxLevel: 14
   ImmediateFail: 1
   TimeScale: 1
 --- !u!1 &1001765393
