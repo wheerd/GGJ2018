@@ -354,7 +354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time used efficiently
+  m_Text: 'Time used
 
 '
 --- !u!222 &515367221
@@ -504,7 +504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pakets managed
+  m_Text: Packages owned
 --- !u!222 &1008946033
 CanvasRenderer:
   m_ObjectHideFlags: 0

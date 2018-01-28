@@ -773,7 +773,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pakets received
+  m_Text: Packages received
 --- !u!222 &1309847202
 CanvasRenderer:
   m_ObjectHideFlags: 0
