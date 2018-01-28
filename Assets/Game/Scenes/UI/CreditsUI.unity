@@ -423,7 +423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129, y: -26}
+  m_AnchoredPosition: {x: 129, y: -46}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361839857
@@ -457,11 +457,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 'Music & Sounds from freesound.org
-
-
-    Font by Cody "CodeMan38" Boisclair'
+    m_LineSpacing: 1.4
+  m_Text: "Music created with beepbox.co\nFont by Cody \"CodeMan38\" Boisclair\nIcons
+    from Jose Luis Carmona\n     and image.freepik.com"
 --- !u!222 &361839858
 CanvasRenderer:
   m_ObjectHideFlags: 0
