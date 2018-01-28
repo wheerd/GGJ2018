@@ -171,7 +171,7 @@ public class Spawner : MonoBehaviour
             return; // skip spawning, create gap
         }
         
-        var package = Instantiate(Package, position, Quaternion.identity);
+        var package = Instantiate(Package, position, Package.transform.rotation);
 
         package.GetComponent<Package>().Color = nextColor;
         package.GetComponent<Package>().State = nextState;
