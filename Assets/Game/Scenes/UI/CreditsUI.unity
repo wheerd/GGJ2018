@@ -459,7 +459,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1.4
   m_Text: "Music created with beepbox.co\nFont by Cody \"CodeMan38\" Boisclair\nIcons
-    from Jose Luis Carmona\n     and image.freepik.com"
+    from Jose Luis Carmona\n     and image.freepik.com\nLogo with cooltext.com"
 --- !u!222 &361839858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -961,7 +961,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Team Teamname
+  m_Text: Team Post Apokalypse
 --- !u!222 &890386296
 CanvasRenderer:
   m_ObjectHideFlags: 0
