@@ -54,6 +54,27 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_013Scene.unity
     guid: 1479dfc1ff3204fe39a1aad2da76efe3
   - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_004Scene.unity
+    guid: 322e54bccde18bf4f9fe17871405ff77
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_005Scene.unity
+    guid: 3bb15119f6bea564ea58f80426957081
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_007Scene.unity
+    guid: 535d10851ddfe4d4794ba1fefb81b859
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_008Scene.unity
+    guid: a9e1a5b8ed989b742819ccc5c0586060
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_010Scene.unity
+    guid: 8f4d20852de48da45bd64dc128561e26
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_012Scene.unity
+    guid: fca95ff06db502f4e89ccfd8b541280a
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_014Scene.unity
+    guid: a69ad10e192e25a45956c289eb9acdce
+  - enabled: 1
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_015Scene.unity
     guid: 7bb1b8023a3ea4fee8576e0adee8c605
   - enabled: 1
