@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/MarcoTest.unity
     guid: dca1d4d837b0a41d293d4075a3df8dea
   - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_002Scene.unity
+    guid: b21203518e98044789b8208e86d9e6fc
+  - enabled: 1
     path: Assets/Game/Scenes/StartScene.unity
     guid: dc49411f334c1444a9ee4c7d1f6a9726
   - enabled: 1

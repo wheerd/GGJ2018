@@ -35,12 +35,28 @@ public class LevelState : DefaultState
 
         SceneManager.LoadScene (GetLevelSceneName(), LoadSceneMode.Additive);
 		SceneManager.LoadScene ("LevelUI", LoadSceneMode.Additive);
-		SceneManager.LoadScene ("LevelOverlay", LoadSceneMode.Additive);
+
+		if (Application.CanStreamedLevelBeLoaded(GetLevelTutorialSceneName()))
+		{
+			SceneManager.LoadScene(GetLevelTutorialSceneName(), LoadSceneMode.Additive);
+		}
+		else
+		{
+			SceneManager.LoadScene("LevelOverlay", LoadSceneMode.Additive);
+		}
 	}
 
 	override public void Unload ()
 	{
-		SceneManager.UnloadSceneAsync ("LevelOverlay");
+		if (Application.CanStreamedLevelBeLoaded(GetLevelTutorialSceneName()))
+		{
+			SceneManager.UnloadSceneAsync(GetLevelTutorialSceneName());
+		}
+		else
+		{
+			SceneManager.UnloadSceneAsync ("LevelOverlay");
+		}
+
 		SceneManager.UnloadSceneAsync ("LevelUI");
 		SceneManager.UnloadSceneAsync (GetLevelSceneName());
 	}
@@ -49,5 +65,11 @@ public class LevelState : DefaultState
 	{
 		//return "ManuelTest";
 		return string.Format("Level_{0:000}Scene", _gameModel.GetCurrentLevel());
+	}
+	
+	private string GetLevelTutorialSceneName()
+	{
+		//return "ManuelTest";
+		return string.Format("LevelTutorial_{0:000}Scene", _gameModel.GetCurrentLevel());
 	}
 }
