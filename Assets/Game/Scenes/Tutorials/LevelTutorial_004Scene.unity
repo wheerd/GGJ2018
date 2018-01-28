@@ -631,9 +631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: 'Cause tonight is the night
-
-    when two become one...'
+  m_Text: Not bad! Try this one.
 --- !u!222 &2007559750
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -631,9 +631,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: 'Cause tonight is the night
+  m_Text: 'We call you the God of blockchain
 
-    when two become one...'
+    when you finish that one on your own...
+
+    (at least we never did it)'
 --- !u!222 &2007559750
 CanvasRenderer:
   m_ObjectHideFlags: 0
