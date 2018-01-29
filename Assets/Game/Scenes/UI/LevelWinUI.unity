@@ -504,7 +504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Packages owned
+  m_Text: Packages delivered
 --- !u!222 &1008946033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 1951434016}
   - component: {fileID: 1951434015}
   - component: {fileID: 1951434014}
+  - component: {fileID: 1951434017}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -930,6 +931,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951434012}
+--- !u!114 &1951434017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951434012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb075b9e6f77044e5a14931b85362777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
+  _volume: 1
 --- !u!1 &2035558864
 GameObject:
   m_ObjectHideFlags: 0

@@ -146,10 +146,12 @@ namespace de.deichkrieger.stateMachine
 		
 		void OnApplicationPause (bool pause)
 		{
+			#if UNITY_ANDROID || UNITY_IOS
 			if (pause)
 			{
 				_pauseSignal.Fire();
 			}
+			#endif
 		}
 	}
 }

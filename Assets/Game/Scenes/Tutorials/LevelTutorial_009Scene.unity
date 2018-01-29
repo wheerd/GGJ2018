@@ -633,7 +633,7 @@ MonoBehaviour:
     m_LineSpacing: 2
   m_Text: 'Cause tonight is the night
 
-    when two become one'
+    when two become one...'
 --- !u!222 &2007559750
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -631,7 +631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: Let's double the impact
+  m_Text: Let's double the impact!
 --- !u!222 &2007559750
 CanvasRenderer:
   m_ObjectHideFlags: 0

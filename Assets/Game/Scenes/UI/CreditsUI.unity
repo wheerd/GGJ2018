@@ -423,7 +423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129, y: -26}
+  m_AnchoredPosition: {x: 129, y: -46}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361839857
@@ -457,11 +457,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 'Music & Sounds from freesound.org
-
-
-    Font by Cody "CodeMan38" Boisclair'
+    m_LineSpacing: 1.4
+  m_Text: "Music created with beepbox.co\nFont by Cody \"CodeMan38\" Boisclair\nIcons
+    from Jose Luis Carmona\n     and image.freepik.com\nLogo with cooltext.com"
 --- !u!222 &361839858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -514,6 +512,7 @@ GameObject:
   - component: {fileID: 622272698}
   - component: {fileID: 622272697}
   - component: {fileID: 622272696}
+  - component: {fileID: 622272699}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -625,6 +624,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 622272694}
+--- !u!114 &622272699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622272694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb075b9e6f77044e5a14931b85362777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
+  _volume: 1
 --- !u!1 &624862197
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +961,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Team Teamname
+  m_Text: Team Post Apokalypse
 --- !u!222 &890386296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1386,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31a529d80b274d44beab5333ebd2cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _backButtonSound: {fileID: 8300000, guid: f0c6a9cfec96d45ea8f599479171bf2b, type: 3}
 --- !u!1 &1714780839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,7 +1716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "zur\xFCck"
+  m_Text: Back
 --- !u!222 &2038067105
 CanvasRenderer:
   m_ObjectHideFlags: 0

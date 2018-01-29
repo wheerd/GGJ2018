@@ -24,15 +24,18 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/LevelWinScene.unity
     guid: 5df8bbc21bfa74176bb85f0c425a3224
   - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_001Scene.unity
+    guid: 4aeb6808d039b46b4bc1745fc0ea61be
+  - enabled: 0
     path: Assets/Game/Scenes/ManuelTest.unity
     guid: a86f46ce03500ee42bbc3303c6c776a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/MarcoTest.unity
     guid: dca1d4d837b0a41d293d4075a3df8dea
   - enabled: 1
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_002Scene.unity
     guid: b21203518e98044789b8208e86d9e6fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Levels/Level_016Scene.unity
     guid: 98f63c71151b7495aa907d48486f2ab8
   - enabled: 1
@@ -50,6 +53,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_013Scene.unity
     guid: 1479dfc1ff3204fe39a1aad2da76efe3
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_004Scene.unity
+    guid: 322e54bccde18bf4f9fe17871405ff77
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_005Scene.unity
+    guid: 3bb15119f6bea564ea58f80426957081
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_007Scene.unity
+    guid: 535d10851ddfe4d4794ba1fefb81b859
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_008Scene.unity
+    guid: a9e1a5b8ed989b742819ccc5c0586060
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_010Scene.unity
+    guid: 8f4d20852de48da45bd64dc128561e26
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_012Scene.unity
+    guid: fca95ff06db502f4e89ccfd8b541280a
+  - enabled: 1
+    path: Assets/Game/Scenes/Tutorials/LevelTutorial_014Scene.unity
+    guid: a69ad10e192e25a45956c289eb9acdce
   - enabled: 1
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_015Scene.unity
     guid: 7bb1b8023a3ea4fee8576e0adee8c605
@@ -98,7 +122,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_015Scene.unity
     guid: 2049be6caab714ef688831020f816a8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Levels/Level_PreFabScene.unity
     guid: e4dd47e12222db74b8f9cd72a0ed6d8f
   - enabled: 1
@@ -125,13 +149,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/UI/StartUI.unity
     guid: 142ca5c6e1ca64d14b7ee4a2150278bd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Tmp_Merger.unity
     guid: 68493125cffb9d34a9dc8736a7c461ee
   - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_013Scene.unity
     guid: 8a6cc0bc89e7c1544bf8dbf23ba46674
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Tmp_Scanner.unity
     guid: 122270e7b63eaa841a364c0d723f0d23
   - enabled: 1
