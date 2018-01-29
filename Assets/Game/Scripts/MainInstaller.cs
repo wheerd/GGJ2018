@@ -25,6 +25,7 @@ public class MainInstaller : MonoInstaller
 		Container.Bind<GameConfig> ().AsSingle ().NonLazy ();
 	    Container.Bind<LevelModel>().AsSingle().NonLazy();
 	    Container.Bind<HighscoreModel>().AsSingle().NonLazy();
+        Container.Bind<TrackingService>().AsSingle().NonLazy();
 
         InstallStates();
 	}
@@ -64,7 +65,7 @@ public class MainInstaller : MonoInstaller
 		Container.Bind<CreditsState> ().AsSingle ();
 		Container.Bind<HighscoreState> ().AsSingle ();
 		
-		Container.Bind<LevelChoseState> ().AsSingle ();
+		Container.Bind<LevelChooseState> ().AsSingle ();
 		Container.Bind<LevelState> ().AsSingle ();		
 		Container.Bind<LevelLostState> ().AsSingle ();
 		Container.Bind<LevelWinState> ().AsSingle ();

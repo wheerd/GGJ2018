@@ -8,12 +8,14 @@ public class LevelState : DefaultState
 	private GameConfig _gameConfig;
     private LevelModel _levelModel;
     private int _nextLevel;
+    private TrackingService _trackingService;
 	
-	public LevelState(GameModel gameModel, LevelModel levelModel, GameConfig gameConfig)
+	public LevelState(GameModel gameModel, LevelModel levelModel, GameConfig gameConfig, TrackingService trackingService)
 	{
 		_gameModel = gameModel;
 	    _levelModel = levelModel;
 		_gameConfig = gameConfig;
+        _trackingService = trackingService;
 		
 	    SetNextLevel(_gameModel.GetLastFinishedLevel() + 1);
 	}
@@ -44,7 +46,9 @@ public class LevelState : DefaultState
 		{
 			SceneManager.LoadScene("LevelOverlay", LoadSceneMode.Additive);
 		}
-	}
+
+        _trackingService.LevelStart(_nextLevel, 0);
+}
 
 	override public void Unload ()
 	{
