@@ -75,7 +75,7 @@ public class Switch : MonoBehaviourWithCursor
                         currentLevel -= threshold;
                     }
 
-                    currentLevel -= Time.deltaTime;
+                    currentLevel -= Time.fixedDeltaTime;
                     break;
                 case InputMode.OneSecond:
                     slider.gameObject.SetActive(true);
@@ -93,7 +93,7 @@ public class Switch : MonoBehaviourWithCursor
         if (currentLevel >= 0)
         {
             if (!Hotkey.IsPressed() || InputMode != InputMode.OneSecond)
-                currentLevel -= Time.deltaTime;
+                currentLevel -= Time.fixedDeltaTime;
             slider.normalizedValue = Math.Max(currentLevel / threshold, 0);
             slider.gameObject.SetActive(true);
         }
