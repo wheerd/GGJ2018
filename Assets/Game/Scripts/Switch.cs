@@ -4,6 +4,7 @@ using Assets.Game.Scripts;
 using ModestTree;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class Switch : MonoBehaviourWithCursor
 {
@@ -27,6 +28,10 @@ public class Switch : MonoBehaviourWithCursor
     public Slider slider;
 
     public SwitchType SwitchType;
+
+    [Inject] private PlayMusicClipSignal playMusicClipSignal;
+
+    [SerializeField] private AudioClip changeSwitchSound;
 
     private void Start()
     {
@@ -109,6 +114,8 @@ public class Switch : MonoBehaviourWithCursor
     private void SetSwitchExit(SwitchExit switchExit)
     {
         currentExit = switchExit;
+
+        playMusicClipSignal.Fire(changeSwitchSound);
         UpdateRotation();
     }
 
