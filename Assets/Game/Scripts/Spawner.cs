@@ -80,7 +80,7 @@ public class Spawner : MonoBehaviour
     {
         var material = GetComponent<MeshRenderer>().material;
         var offset = material.GetTextureOffset("_MainTex");
-        offset.y -= Time.deltaTime * Speed / 2;
+        offset.y -= Time.fixedDeltaTime * Speed / 2;
         material.SetTextureOffset("_MainTex", offset);
     }
 
@@ -103,7 +103,7 @@ public class Spawner : MonoBehaviour
     
     private void SimpleSpawner()
     {
-        _elapsed += Time.deltaTime;
+        _elapsed += Time.fixedDeltaTime;
 
         if (_index >= runtimeSequence.Length)
         {
@@ -141,7 +141,7 @@ public class Spawner : MonoBehaviour
     
     private void ComplexSpawner()
     {
-        _elapsed += Time.deltaTime;
+        _elapsed += Time.fixedDeltaTime;
 
         if (_index >= PackageSpawns.Count)
         {

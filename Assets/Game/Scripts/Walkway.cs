@@ -13,7 +13,7 @@ public class Walkway : MonoBehaviour {
     {
         var material = GetComponent<MeshRenderer>().material;
         var offset = material.GetTextureOffset("_MainTex");
-        offset.y -= Time.deltaTime * WalkwaySpeed / 2;
+        offset.y -= Time.fixedDeltaTime * WalkwaySpeed / 2;
         material.SetTextureOffset("_MainTex", offset);
     }
 
