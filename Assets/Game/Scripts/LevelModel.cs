@@ -26,7 +26,7 @@ public class LevelModel : IInitializable
 
     private MonoBehaviour MonoBehaviour
     {
-        get { return _monoBehaviour ?? (_monoBehaviour = Object.FindObjectOfType<MonoBehaviour>()); }
+        get { return Object.FindObjectOfType<MonoBehaviour>(); }
     }
 
     public LevelModel(LevelWinSignal levelWinSignal, LevelLostSignal levelLostSignal)
@@ -52,6 +52,7 @@ public class LevelModel : IInitializable
             {
                 _lost = true;
                 MonoBehaviour.StartCoroutine(LooseLevel());
+                Debug.Log("initiate lose level");
             }
         }
         
@@ -71,6 +72,7 @@ public class LevelModel : IInitializable
     {
         yield return new WaitForSecondsRealtime(2);
         _levelLostSignal.Fire();
+        Debug.Log("fire level lost signal");
     }
 
     public void IncrementTime()
@@ -88,6 +90,7 @@ public class LevelModel : IInitializable
         CorrectPackageCount = 0;
         TotalPackageCount = 0;
         Timer = 0;
+        _lost = false;
 
         ExpectedPackageCount = Object.FindObjectsOfType<Spawner>().Sum(spawner =>
         {
