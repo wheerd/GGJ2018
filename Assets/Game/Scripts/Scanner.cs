@@ -17,18 +17,18 @@ public class Scanner : MonoBehaviour
             var position = transform.position;
             var rigidBody = gameObject.GetComponent<Rigidbody>();
 
-            rigidBody.velocity = Vector3.zero;
-            rigidBody.MovePosition(position);
-            rigidBody.isKinematic = true;
+            //rigidBody.velocity = Vector3.zero;
+            //rigidBody.MovePosition(position);
+            //rigidBody.isKinematic = true;
 
             gameObject.GetComponent<Package>().SetState(PackageState.Normal);
-            MovePackageToExit(gameObject);
+            //MovePackageToExit(gameObject);
 
             _playMusicClipSignal.Fire(_packageScanSound);
         }
     }
 
-    private void MovePackageToExit(GameObject gameObject)
+      private void MovePackageToExit(GameObject gameObject)
     {
         var rigidBody = gameObject.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
