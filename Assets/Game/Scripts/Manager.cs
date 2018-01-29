@@ -14,7 +14,7 @@ namespace de.deichkrieger.stateMachine
 		[Inject] private LevelState _levelState;
 		[Inject] private LevelLostState _levelLostState;
 		[Inject] private LevelWinState _levelWinState;
-		[Inject] private LevelChoseState _levelChoseState;
+		[Inject] private LevelChooseState _levelChoseState;
 
 		[Inject] private GameStartSignal _gameStartSignal;
 		[Inject] private GameHighscoreSignal _gameHighscoreSignal;
@@ -25,6 +25,8 @@ namespace de.deichkrieger.stateMachine
 		[Inject] private LevelChoseSignal _levelChoseSignal;
 		[Inject] private LevelNumberStartSignal _levelNumberStartSignal;
 		[Inject] private PauseSignal _pauseSignal;
+
+        [Inject] private TrackingService _trackingService;
 
 		[SerializeField] private bool InitiateStartScene = true;
 		
@@ -42,7 +44,7 @@ namespace de.deichkrieger.stateMachine
 			_levelChoseSignal += OnLevelChoseSignal;
 			_levelNumberStartSignal += OnLevelSignal;
 			_pauseSignal += OnPauseSignal;
-		}
+        }
 
 		void Start()
 		{
@@ -50,6 +52,8 @@ namespace de.deichkrieger.stateMachine
 			{
 				_gameStartSignal.Fire();
 			}
+
+            _trackingService.AppStart();
 		}
 
 		void OnDestroy ()
