@@ -25,7 +25,7 @@ public class MainInstaller : MonoInstaller
 		Container.Bind<GameConfig> ().AsSingle ().NonLazy ();
 	    Container.Bind<LevelModel>().AsSingle().NonLazy();
 	    Container.Bind<HighscoreModel>().AsSingle().NonLazy();
-        Container.Bind<TrackingService>().AsSingle().NonLazy();
+        Container.Bind<TrackingService>().AsSingle();
 
         InstallStates();
 	}

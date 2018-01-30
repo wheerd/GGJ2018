@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 public class LevelModel : IInitializable
 {
     [Inject] private GameConfig _gameConfig;
-    
+
     public int CorrectPackageCount { get; private set; }
 
     public int TotalPackageCount { get; private set; }
@@ -21,13 +21,6 @@ public class LevelModel : IInitializable
     private readonly LevelLostSignal _levelLostSignal;
 
     private bool _lost = false;
-
-    private MonoBehaviour _monoBehaviour;
-
-    private MonoBehaviour MonoBehaviour
-    {
-        get { return Object.FindObjectOfType<MonoBehaviour>(); }
-    }
 
     public LevelModel(LevelWinSignal levelWinSignal, LevelLostSignal levelLostSignal)
     {
@@ -51,7 +44,7 @@ public class LevelModel : IInitializable
             if (!_lost)
             {
                 _lost = true;
-                MonoBehaviour.StartCoroutine(LooseLevel());
+                CoroutineProvider.Instance.StartCoroutine(LooseLevel());
                 Debug.Log("initiate lose level");
             }
         }
