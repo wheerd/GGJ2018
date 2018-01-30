@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using de.deichkrieger.stateMachine;
 using Zenject;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using ModestTree;
+using ModestTree;
 using UnityEngine;
 
 #if !NOT_UNITY3D

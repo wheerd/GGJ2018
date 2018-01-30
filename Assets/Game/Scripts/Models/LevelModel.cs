@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Linq;
 using de.deichkrieger.stateMachine;
 using UnityEngine;

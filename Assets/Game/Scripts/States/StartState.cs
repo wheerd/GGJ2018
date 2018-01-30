@@ -1,4 +1,4 @@
-﻿using de.deichkrieger.stateMachine;
+using de.deichkrieger.stateMachine;
 using UnityEngine.SceneManagement;
 
 public class StartState : DefaultState

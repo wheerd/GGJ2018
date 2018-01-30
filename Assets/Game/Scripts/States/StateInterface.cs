@@ -1,4 +1,4 @@
-﻿namespace de.deichkrieger.stateMachine
+namespace de.deichkrieger.stateMachine
 {
 	interface StateInterface
 	{

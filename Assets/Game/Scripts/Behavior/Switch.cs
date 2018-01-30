@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Assets.Game.Scripts;
 using ModestTree;

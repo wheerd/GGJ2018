@@ -1,4 +1,4 @@
-﻿using ModestTree;
+using ModestTree;
 using UnityEngine;
 
 public class Gate : MonoBehaviour

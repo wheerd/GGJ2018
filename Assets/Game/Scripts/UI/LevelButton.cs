@@ -1,4 +1,4 @@
-﻿using de.deichkrieger.stateMachine;
+using de.deichkrieger.stateMachine;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

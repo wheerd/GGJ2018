@@ -1,4 +1,4 @@
-﻿using Assets.Game.Scripts;
+using Assets.Game.Scripts;
 using UnityEngine;
 using Zenject;
 

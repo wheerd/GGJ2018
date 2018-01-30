@@ -1,4 +1,4 @@
-﻿namespace Assets.Game.Scripts
+namespace Assets.Game.Scripts
 {
     public static class Tags
     {
