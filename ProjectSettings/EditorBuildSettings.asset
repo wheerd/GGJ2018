@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_002Scene.unity
     guid: b21203518e98044789b8208e86d9e6fc
   - enabled: 0
-    path: Assets/Game/Scenes/Levels/Level_016Scene.unity
+    path: Assets/__DELETED_GUID_Trash/98f63c71151b7495aa907d48486f2ab8
     guid: 98f63c71151b7495aa907d48486f2ab8
   - enabled: 1
     path: Assets/Game/Scenes/Tutorials/LevelTutorial_003Scene.unity
@@ -117,13 +117,19 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Levels/Level_012Scene.unity
     guid: 9c972015630284a2e9fd5ed130860f06
   - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_016Scene.unity
+    guid: 0dbfe46e50f008043b3d58ba7f578849
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level_PreFabScene.unity
+    guid: edfa15017296acc4085e5abe1dc24cda
+  - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_014Scene.unity
     guid: 7d388d919ceac49dba936e917c0b7756
   - enabled: 1
     path: Assets/Game/Scenes/Levels/Level_015Scene.unity
     guid: 2049be6caab714ef688831020f816a8e
   - enabled: 0
-    path: Assets/Game/Scenes/Levels/Level_PreFabScene.unity
+    path: Assets/Game/Scenes/Levels/Level_017Scene.unity
     guid: e4dd47e12222db74b8f9cd72a0ed6d8f
   - enabled: 1
     path: Assets/Game/Scenes/UI/CreditsUI.unity
@@ -161,3 +167,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/UI/LevelOverlay.unity
     guid: f6abeb6f1f82c478ca2b832e2cc44c66
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/LevelBase.unity
+    guid: 259c683807d1c5844b9cd497b9d65e6c

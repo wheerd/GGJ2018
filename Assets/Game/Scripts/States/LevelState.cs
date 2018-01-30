@@ -36,7 +36,8 @@ public class LevelState : DefaultState
 
 
         SceneManager.LoadScene (GetLevelSceneName(), LoadSceneMode.Additive);
-		SceneManager.LoadScene ("LevelUI", LoadSceneMode.Additive);
+        SceneManager.LoadScene ("LevelBase", LoadSceneMode.Additive);
+        SceneManager.LoadScene ("LevelUI", LoadSceneMode.Additive);
 
 		if (Application.CanStreamedLevelBeLoaded(GetLevelTutorialSceneName()))
 		{
@@ -62,7 +63,8 @@ public class LevelState : DefaultState
 		}
 
 		SceneManager.UnloadSceneAsync ("LevelUI");
-		SceneManager.UnloadSceneAsync (GetLevelSceneName());
+        SceneManager.UnloadSceneAsync ("LevelBase");
+        SceneManager.UnloadSceneAsync (GetLevelSceneName());
 	}
 
 	private string GetLevelSceneName()
