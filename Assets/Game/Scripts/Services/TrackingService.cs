@@ -12,7 +12,7 @@ public class TrackingService {
 
     public void ScreenLeave(string screenName)
     {
-        Track("sxreenLeave", new Dictionary<string, object>() {
+        Track("screenLeave", new Dictionary<string, object>() {
             { "screenName", screenName}
         });
 
