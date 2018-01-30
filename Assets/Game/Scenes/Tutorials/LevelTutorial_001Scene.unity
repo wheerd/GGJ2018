@@ -138,14 +138,14 @@ RectTransform:
   m_GameObject: {fileID: 270588736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.20003785, z: 1}
+  m_LocalScale: {x: 1, y: 0.4475977, z: 1}
   m_Children: []
   m_Father: {fileID: 798480470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 31}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270588738
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -431,7 +431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 36}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299196624
@@ -465,11 +465,11 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.3
   m_Text: "You are an employee of a hyped Blockchain\xAE based logistics company.
     Make sure the packages get moved to the right transaction tubes for final delivery.\n\nEach
     level will challenge your transactional skills even more. New tools are getting
-    unlocked to prepare yourself to transmutate into the first human Blockchain\xAE!\n\nYou
+    unlocked to prepare yourself to transmutate into the first human Blockchain\xAE!\n\n\n\n\n\nYou
     are stuck at a certain level? Don't worry. You can't change the difficulty. So
     try to get social, ask a human next to you, form up a team and manage the package
     transactions together!"
