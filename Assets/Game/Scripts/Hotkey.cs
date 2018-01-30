@@ -4,7 +4,8 @@ using UnityEngine;
 [Serializable]
 public enum Hotkey
 {
-    Auto, Hotkey1, Hotkey2, Hotkey3, Hotkey4, Hotkey5, Hotkey6, Hotkey7, Hotkey8, Hotkey9
+    Auto, Hotkey1, Hotkey2, Hotkey3, Hotkey4, Hotkey5, Hotkey6, Hotkey7, Hotkey8, Hotkey9,
+    HotkeyQ, HotkeyW, HotkeyE, HotkeyR, HotkeyT, HotkeyZ
 }
 
 public static class HotkeyExtensions
