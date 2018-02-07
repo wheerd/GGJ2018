@@ -46,9 +46,10 @@ public class Switch : MonoBehaviourWithCursor
 
         Bottom.Speed = OutputSpeed;
 
+        // disable hotkey UI on mobile
 #if UNITY_ANDROID || UNITY_IOS
         GetComponentInChildren<Text>().transform.parent.gameObject.SetActive(false);
-        #endif
+#endif
 
         currentExit = DefaultExit;
         UpdateRotation();
@@ -91,6 +92,11 @@ public class Switch : MonoBehaviourWithCursor
 
     private void FixedUpdate()
     {
+        if (!_isActive)
+        {
+            return;
+        }
+
         if (Hotkey.WasPressedThisFrame())
             switch (InputMode)
             {
