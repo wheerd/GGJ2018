@@ -10,6 +10,8 @@ public class HighscoreEntry
 {
 	public int Level;
 	public float Time;
+    public int HasWon = 0;
+    public int Tries = 0;
 
 }
 
@@ -28,19 +30,66 @@ public class HighscoreModel {
 		return Highscores;
 	}
 
-	public void AddHighscore(int level, float time)
+    public HighscoreEntry AddTry(int level)
+    {
+        Debug.Log("Add Try " + level);
+
+        var entry = Highscores.Find(q => q.Level == level);
+
+        if (entry != null)
+        {
+            entry.Tries++;
+        }
+        else
+        {
+            entry = new HighscoreEntry()
+            {
+                Level = level,
+                Time = 0,
+                Tries = 1,
+                HasWon = 0
+            };
+
+            Highscores.Add(entry);
+        }
+
+        SaveHighscore();
+
+        return entry;
+    }
+
+    public HighscoreEntry AddHighscore(int level, float time)
 	{
 		Debug.Log("Add Highscore " + level + "/" + time);
-		Highscores.Add(new HighscoreEntry()
-		{
-			Level = level,
-			Time = time
-		});
 
-		Highscores = Highscores.OrderByDescending(o => o.Level).
-			ThenBy(o => o.Time).ToList();
-		
+        var entry = Highscores.Find(q => q.Level == level);
+
+        if (entry != null)
+        {
+            entry.Tries++;
+            entry.HasWon++;
+
+            if (entry.Time > time)
+            {
+                entry.Time = time;
+            }
+        }
+        else
+        {
+            entry = new HighscoreEntry()
+            {
+                Level = level,
+                Time = time,
+                Tries = 1,
+                HasWon = 1
+            };
+
+            Highscores.Add(entry);
+        }
+
 		SaveHighscore();
+
+        return entry;
 	}
 	
 	class ListHolder
@@ -50,7 +99,9 @@ public class HighscoreModel {
 	
 	private void SaveHighscore()
 	{
-		ListHolder listHolder = new ListHolder();
+        Highscores = Highscores.DistinctBy(o => o.Level).OrderByDescending(o => o.Level).ThenBy(o => o.Time).ToList();
+
+        ListHolder listHolder = new ListHolder();
 		listHolder.list = Highscores;
 		
 		string json = JsonUtility.ToJson(listHolder);

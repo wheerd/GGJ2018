@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222795572234910860}
   - component: {fileID: 114682078707068140}
   m_Layer: 5
-  m_Name: TimeLbl
+  m_Name: TriesLbl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _position: {fileID: 114201902655597486}
   _level: {fileID: 114288734952616828}
-  _time: {fileID: 114682078707068140}
+  _tries: {fileID: 114682078707068140}
 --- !u!114 &114682078707068140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,7 +191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Time 1:24
+  m_Text: Tries 2/4
 --- !u!114 &114989103084350048
 MonoBehaviour:
   m_ObjectHideFlags: 1

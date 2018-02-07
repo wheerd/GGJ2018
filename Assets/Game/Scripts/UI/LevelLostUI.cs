@@ -16,14 +16,17 @@ public class LevelLostUI : MonoBehaviour {
 	
 	[Inject] private LevelModel _levelModel;
 	[Inject] private GameModel _gameModel;
+    [Inject] private HighscoreModel _highscoreModel;
 
-	[Inject] private PlayMusicClipSignal _playMusicClipSignal;
+    [Inject] private PlayMusicClipSignal _playMusicClipSignal;
 
 	void Start()
 	{
 		_packets.text = _levelModel.CorrectPackageCount.ToString() + " / " + _levelModel.ExpectedPackageCount;
 		_time.text = GetTimeFormatted(_levelModel.Timer);
-		
+
+        AddTry();
+
 		_playMusicClipSignal.Fire(_levelLostSound);
 	}
 
@@ -50,4 +53,9 @@ public class LevelLostUI : MonoBehaviour {
 
 		return string.Format("{0:D}:{1:00}", minutes, seconds);
 	}
+
+    private void AddTry()
+    {
+        _highscoreModel.AddTry(_gameModel.GetLastLevel());
+    }
 }

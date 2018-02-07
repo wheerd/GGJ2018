@@ -17,7 +17,7 @@ public class HighscoreListRenderer : MonoBehaviour
 		{
 			HighscoreEntryRenderer item = Instantiate(_entryPrefab);
 			
-			item.SetData(i++, entry.Level, entry.Time);
+			item.SetData(i++, entry.Level, entry.HasWon, entry.Tries);
 			
 			item.gameObject.SetActive(true);
 			item.gameObject.transform.SetParent(transform);
