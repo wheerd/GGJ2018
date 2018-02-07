@@ -19,6 +19,7 @@ public class HighscoreEntry
 public class HighscoreModel {
 
 	List<HighscoreEntry> Highscores = new List<HighscoreEntry>();
+    int Version = 1;
 
 	public HighscoreModel()
 	{
@@ -95,6 +96,7 @@ public class HighscoreModel {
 	class ListHolder
 	{
 		public List<HighscoreEntry> list;
+        public int Version = 0;
 	}
 	
 	private void SaveHighscore()
@@ -103,6 +105,7 @@ public class HighscoreModel {
 
         ListHolder listHolder = new ListHolder();
 		listHolder.list = Highscores;
+        listHolder.Version = Version;
 		
 		string json = JsonUtility.ToJson(listHolder);
 		PlayerPrefs.SetString("highscore", json);
@@ -122,7 +125,7 @@ public class HighscoreModel {
 		}
 
 		ListHolder listModel = JsonUtility.FromJson<ListHolder>(json);
-		Highscores = listModel.list;
+		Highscores = Migrate(listModel.list, listModel.Version);
 	}
 
 	public void ResetState()
@@ -130,4 +133,26 @@ public class HighscoreModel {
 		Highscores = new List<HighscoreEntry>();
 		SaveHighscore();
 	}
+
+    private List<HighscoreEntry> Migrate(List<HighscoreEntry> list, int version)
+    {
+        if (version == 0)
+        {
+            Debug.Log("Migrate Highscore from version 0");
+            foreach(var entry in list)
+            {
+                if (entry.Tries == 0)
+                {
+                    entry.Tries = 1;
+                }
+
+                if (entry.HasWon == 0)
+                {
+                    entry.HasWon = 1;
+                }
+            }
+        }
+
+        return list;
+    }
 }
