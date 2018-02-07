@@ -17,15 +17,16 @@ public class Package : MonoBehaviour
 
     private Material _defaultMaterial;
 
-    public void Fade()
-    {
-        _fading = true;
-    }
+    private Rigidbody _rigidbody;
+
+    private MeshRenderer _meshRenderer;
 
     void Start ()
     {
         _maxSpeed = 0;
         _defaultMaterial = GetComponent<MeshRenderer>().material;
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _rigidbody = GetComponent<Rigidbody>();
 
         UpdateColor();
     }
@@ -43,44 +44,41 @@ public class Package : MonoBehaviour
 
     private void UpdateColor()
     {
-        var meshRenderer = GetComponent<MeshRenderer>();
-
         if (State == PackageState.Blank)
         {
-            meshRenderer.material = UnknownMaterial;
+            _meshRenderer.material = UnknownMaterial;
             return;
         }
 
-        meshRenderer.material = _defaultMaterial;
-        meshRenderer.material.color = Color.ToColor();
+        _meshRenderer.material = _defaultMaterial;
+        _meshRenderer.material.color = Color.ToColor();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        var body = GetComponent<Rigidbody>();
-        if (!_fading || !body.IsSleeping()) return;
+        if (!_fading || !_rigidbody.IsSleeping()) return;
         
         var floorCollider = FindObjectOfType<Floor>().GetComponent<Collider>();
-        foreach (var collider in GetComponents<Collider>())
+        foreach (var myCollider in GetComponents<Collider>())
         {
-            Physics.IgnoreCollision(floorCollider, collider);
+            Physics.IgnoreCollision(floorCollider, myCollider);
         }
 
-        body.drag = 5;
+        _rigidbody.drag = 5;
         Destroy(gameObject, 5);
         _fading = false;
     }
-
-    void LateUpdate ()
+    
+    void LateUpdate()
     {
         if (_maxSpeed > 0 && !_fading)
         {
-            var body = GetComponent<Rigidbody>();
-
-            body.velocity = body.velocity.normalized * _maxSpeed;
+            _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
             _maxSpeed = 0;
         }
+        
     }
+
 }
 
 public enum PackageState

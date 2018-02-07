@@ -27,7 +27,7 @@ public class Merger : MonoBehaviour
         
     }
 
-    private void Update ()
+    private void FixedUpdate ()
     {
         if (!packageQueue.Any())
         {
