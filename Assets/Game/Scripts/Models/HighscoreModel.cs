@@ -126,9 +126,11 @@ public class HighscoreModel {
 
 		ListHolder listModel = JsonUtility.FromJson<ListHolder>(json);
 		Highscores = Migrate(listModel.list, listModel.Version);
-	}
 
-	public void ResetState()
+        Highscores = Highscores.DistinctBy(o => o.Level).OrderByDescending(o => o.Level).ThenBy(o => o.Time).ToList();
+    }
+
+    public void ResetState()
 	{
 		Highscores = new List<HighscoreEntry>();
 		SaveHighscore();
