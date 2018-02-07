@@ -56,6 +56,12 @@ public class Package : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_maxSpeed > 0 && !_fading)
+        {
+            _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
+            _maxSpeed = 0;
+        }
+
         if (!_fading || !_rigidbody.IsSleeping()) return;
         
         var floorCollider = FindObjectOfType<Floor>().GetComponent<Collider>();
@@ -67,16 +73,6 @@ public class Package : MonoBehaviour
         _rigidbody.drag = 5;
         Destroy(gameObject, 5);
         _fading = false;
-    }
-    
-    void LateUpdate()
-    {
-        if (_maxSpeed > 0 && !_fading)
-        {
-            _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
-            _maxSpeed = 0;
-        }
-        
     }
 
 }
