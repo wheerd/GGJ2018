@@ -33,6 +33,8 @@ public class Switch : MonoBehaviourWithCursor
 
     [SerializeField] private AudioClip changeSwitchSound;
 
+    private bool _isActive = true;
+
     private void Start()
     {
         slider.gameObject.SetActive(false);
@@ -50,6 +52,33 @@ public class Switch : MonoBehaviourWithCursor
 
         currentExit = DefaultExit;
         UpdateRotation();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        var gameObject = other.gameObject;
+        if (gameObject.CompareTag(Tags.Package))
+        {
+            _isActive = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var gameObject = other.gameObject;
+        if (gameObject.CompareTag(Tags.Package))
+        {
+            _isActive = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var gameObject = other.gameObject;
+        if (gameObject.CompareTag(Tags.Package))
+        {
+            _isActive = false;
+        }
     }
 
     private Hotkey GetFirstUnusedHotkey()
@@ -108,6 +137,11 @@ public class Switch : MonoBehaviourWithCursor
 
     private void OnMouseDown()
     {
+        if (!_isActive)
+        {
+            return;
+        }
+
         SetSwitchExit(currentExit.NextValid(SwitchType));
     }
 
