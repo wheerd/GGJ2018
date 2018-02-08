@@ -163,7 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: de.deichkrieger.ggj2018
-    iOS: de.deichkrieger.ggj2018
+    iOS: 'de.deichkrieger.ggj2018 '
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -249,8 +249,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/marcobehnke/Library/Mobile Documents/com~apple~CloudDocs/Keystores/deichkrieger.keystore
+  AndroidKeyaliasName: blockchain
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
